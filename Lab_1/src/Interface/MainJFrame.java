@@ -37,6 +37,7 @@ public class MainJFrame extends javax.swing.JFrame {
         createBtn = new javax.swing.JButton();
         viewBtn = new javax.swing.JButton();
         diaplayJPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,32 +61,41 @@ public class MainJFrame extends javax.swing.JFrame {
             controlJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(controlJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(createBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(viewBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(controlJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(viewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createBtn))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         controlJPanelLayout.setVerticalGroup(
             controlJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlJPanelLayout.createSequentialGroup()
-                .addGap(92, 92, 92)
+                .addGap(107, 107, 107)
                 .addComponent(createBtn)
-                .addGap(53, 53, 53)
+                .addGap(59, 59, 59)
                 .addComponent(viewBtn)
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(controlJPanel);
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jLabel1.setText("Hi,welcome!");
 
         javax.swing.GroupLayout diaplayJPanelLayout = new javax.swing.GroupLayout(diaplayJPanel);
         diaplayJPanel.setLayout(diaplayJPanelLayout);
         diaplayJPanelLayout.setHorizontalGroup(
             diaplayJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 445, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, diaplayJPanelLayout.createSequentialGroup()
+                .addContainerGap(113, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96))
         );
         diaplayJPanelLayout.setVerticalGroup(
             diaplayJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 368, Short.MAX_VALUE)
+            .addGroup(diaplayJPanelLayout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         splitPane.setRightComponent(diaplayJPanel);
@@ -148,6 +158,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel controlJPanel;
     private javax.swing.JButton createBtn;
     private javax.swing.JPanel diaplayJPanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JButton viewBtn;
     // End of variables declaration//GEN-END:variables
