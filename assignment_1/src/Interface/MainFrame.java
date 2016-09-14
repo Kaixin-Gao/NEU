@@ -6,6 +6,7 @@
 package Interface;
 
 import javax.swing.JOptionPane;
+import Resume_maker.Resume;
 
 /**
  *
@@ -16,8 +17,15 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainFrame
      */
+    
+
+    /**
+     * Creates new form MainJFrame
+     */ 
+    private Resume resume;
     public MainFrame() {
         initComponents();
+        resume=new Resume();
     }
 
     /**
@@ -29,7 +37,7 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
+        SplitPanel = new javax.swing.JSplitPane();
         jPanel3 = new javax.swing.JPanel();
         createBtn = new javax.swing.JButton();
         viewBtn = new javax.swing.JButton();
@@ -86,7 +94,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(485, Short.MAX_VALUE))
         );
 
-        jSplitPane1.setLeftComponent(jPanel3);
+        SplitPanel.setLeftComponent(jPanel3);
 
         jLabel1.setText("Welcome use the Resume Generator");
 
@@ -100,16 +108,17 @@ public class MainFrame extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel3)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addGap(249, 249, 249)
-                            .addComponent(jLabel1)
-                            .addGap(39, 39, 39)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(204, 204, 204)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(39, 39, 39))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(239, 239, 239)
                         .addComponent(jLabel2)))
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addContainerGap(288, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,30 +132,30 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(434, Short.MAX_VALUE))
         );
 
-        jSplitPane1.setRightComponent(jPanel4);
+        SplitPanel.setRightComponent(jPanel4);
 
-        getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(SplitPanel, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
         // TODO add your handling code here:
-        CreateJPanel createJPanel=new CreateJPanel(product);
-        splitPane.setRightComponent(createJPanel);
+        InputPanel inputPanel=new InputPanel(resume);
+        SplitPanel.setRightComponent(inputPanel);
 
     }//GEN-LAST:event_createBtnActionPerformed
 
     private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
 
-        ViewJPanel viewJPanel=new ViewJPanel(product);
-        splitPane.setRightComponent(viewJPanel);
+        ViewPanel viewPanel=new ViewPanel(resume);
+        SplitPanel.setRightComponent(viewPanel);
 
     }//GEN-LAST:event_viewBtnActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         JOptionPane.showMessageDialog(null,"this java application is written by gao kaixin, the 5 additional attributes will be working experience, personal summary, email, phone and area of experise. thanks for viewing.");
+         JOptionPane.showMessageDialog(null,"This application is written by gao kaixin, \nthe 5 additional attributes will be \n\nworking experience \npersonal summary \nemail \nphone \narea of experise. \n\nThanks for viewing.");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -185,6 +194,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSplitPane SplitPanel;
     private javax.swing.JButton createBtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -192,7 +202,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton viewBtn;
     // End of variables declaration//GEN-END:variables
 }
