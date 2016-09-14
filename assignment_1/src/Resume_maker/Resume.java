@@ -137,6 +137,15 @@ public class Resume {
     private String workexp3;
     private String personsummary;
     private String careerobjective;
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
     
 
 
