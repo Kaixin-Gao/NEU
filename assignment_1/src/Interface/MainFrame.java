@@ -49,6 +49,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
         createBtn.setText("Create");
         createBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +98,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         SplitPanel.setLeftComponent(jPanel3);
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setText("Welcome use the Resume Generator");
 
         jLabel2.setText("Press the Create button to start");
@@ -118,7 +122,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(239, 239, 239)
                         .addComponent(jLabel2)))
-                .addContainerGap(288, Short.MAX_VALUE))
+                .addContainerGap(355, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

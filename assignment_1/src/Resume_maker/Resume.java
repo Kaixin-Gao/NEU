@@ -59,29 +59,14 @@ public class Resume {
         this.affiliation = affiliation;
     }
 
-    public String getVolunteerexp1() {
-        return volunteerexp1;
+    public String getVolunteerexp() {
+        return volunteerexp;
     }
 
-    public void setVolunteerexp1(String volunteerexp1) {
-        this.volunteerexp1 = volunteerexp1;
+    public void setVolunteerexp(String volunteerexp) {
+        this.volunteerexp = volunteerexp;
     }
 
-    public String getVolunteerexp2() {
-        return volunteerexp2;
-    }
-
-    public void setVolunteerexp2(String volunteerexp2) {
-        this.volunteerexp2 = volunteerexp2;
-    }
-
-    public String getVolunteerexp3() {
-        return volunteerexp3;
-    }
-
-    public void setVolunteerexp3(String volunteerexp3) {
-        this.volunteerexp3 = volunteerexp3;
-    }
 
     public String getWorkexp1() {
         return workexp1;
@@ -126,12 +111,13 @@ public class Resume {
     private String name;
     private String email;
     private String address;
+    private String address2;
     private String phone;
     private String area;
     private String affiliation;
-    private String volunteerexp1;
-    private String volunteerexp2;
-    private String volunteerexp3;
+    private String degree1;
+    private String degree2;
+    private String volunteerexp;
     private String workexp1;
     private String workexp2;
     private String workexp3;
@@ -147,6 +133,30 @@ public class Resume {
         this.image = image;
     }
     
+    public String getAddress2() {
+        return address2;
+    }
+
+    public void setAddress2(String address2) {
+        this.address2 = address2;
+    }
+    
+    
+    public String getDegree1() {
+        return degree1;
+    }
+
+    public void setDegree1(String degree1) {
+        this.degree1 = degree1;
+    }
+
+    public String getDegree2() {
+        return degree2;
+    }
+
+    public void setDegree2(String degree2) {
+        this.degree2 = degree2;
+    }
 
 
     

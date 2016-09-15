@@ -5,6 +5,7 @@
  */
 package Interface;
 import Resume_maker.Resume;
+import java.awt.Image;
 import javax.swing.ImageIcon;
 
 /**
@@ -25,14 +26,62 @@ public class ViewPanel extends javax.swing.JPanel {
     private void displayResume(Resume resume)
     {
             String resumeName=resume.getName();   
-            Test.setText(resumeName);
+            nameLabel.setText(resumeName);
+            
+            String resumeAddress=resume.getAddress();
+            addressLabel.setText(resumeAddress);
+            
+            String resumeAddress2=resume.getAddress2();
+            address2Label.setText(resumeAddress2);
+            
+            String resumeEmail=resume.getEmail();
+            emailLabel.setText(resumeEmail);
+            
+            String resumeAffiliation=resume.getAffiliation();
+            affiliationLabel.setText(resumeAffiliation);
+            
+            String resumePhone=resume.getPhone();
+            phoneLabel.setText(resumePhone);
+            
+            String resumeArea=resume.getArea();
+            areaLabel.setText(resumeArea);
+            
+            String resumeDegree1=resume.getDegree1();
+            degree1Label.setText(resumeDegree1);
+            
+            String resumeDegree2=resume.getDegree2();
+            degree2Label.setText(resumeDegree2);
+            
+            String resumeVolunteerexp=resume.getVolunteerexp();
+            volexpLabel.setText(resumeVolunteerexp);
+            
+            String resumeCareerobjective=resume.getCareerobjective();
+            careerLabel.setText(resumeCareerobjective);
+            
+            String resumePersonsummary=resume.getPersonsummary();
+            personalLabel.setText(resumePersonsummary);
+            
+            String resumeWorkexp1=resume.getWorkexp1();
+            workexp1Label.setText(resumeWorkexp1);
+            
+            String resumeWorkexp2=resume.getWorkexp2();
+            workexp2Label.setText(resumeWorkexp2);
+            
+            String resumeWorkexp3=resume.getWorkexp3();
+            workexp3Label.setText(resumeWorkexp3);
             
             String path = resume.getImage();
             if (path != null){
-            ImageIcon imgThisImg = new ImageIcon(path);
+                
+            ImageIcon imageIcon = new ImageIcon(path); 
+            Image image = imageIcon.getImage(); 
+            Image newimg = image.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
+            imageIcon = new ImageIcon(newimg); 
+
+            ImageIcon imgThisImg = new ImageIcon(newimg);
             Label.setIcon(imgThisImg);}
             else {
-            ImageIcon imgThisImg = new ImageIcon("src/2015.jpg");
+            ImageIcon imgThisImg = new ImageIcon("src/2015.png");
             Label.setIcon(imgThisImg);}
             
             
@@ -49,73 +98,400 @@ public class ViewPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        nameTextfield = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        Test = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
         Label = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        addressLabel = new javax.swing.JLabel();
+        address2Label = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        emailLabel = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        phoneLabel = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        affiliationLabel = new javax.swing.JLabel();
+        areaLabel = new javax.swing.JLabel();
+        degree1Label = new javax.swing.JLabel();
+        degree2Label = new javax.swing.JLabel();
+        volexpLabel = new javax.swing.JLabel();
+        workexp1Label = new javax.swing.JLabel();
+        workexp2Label = new javax.swing.JLabel();
+        workexp3Label = new javax.swing.JLabel();
+        personalLabel = new javax.swing.JLabel();
+        careerLabel = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
 
-        jLabel1.setText("Name");
+        setBackground(new java.awt.Color(0, 255, 255));
 
-        nameTextfield.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameTextfieldActionPerformed(evt);
-            }
-        });
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel1.setText("Name:");
 
-        jLabel2.setText("Contect me:");
+        jLabel2.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 102, 255));
+        jLabel2.setText("education");
 
-        Test.setText("jLabel3");
+        nameLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        nameLabel.setForeground(new java.awt.Color(255, 255, 255));
+        nameLabel.setText("jLabel3");
 
+        Label.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         Label.setText("jLabel3");
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel3.setText("Address:");
+
+        addressLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        addressLabel.setForeground(new java.awt.Color(255, 255, 255));
+        addressLabel.setText("jLabel4");
+
+        address2Label.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        address2Label.setForeground(new java.awt.Color(255, 255, 255));
+        address2Label.setText("jLabel4");
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel4.setText("Email:");
+
+        emailLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        emailLabel.setForeground(new java.awt.Color(255, 255, 255));
+        emailLabel.setText("jLabel5");
+
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel5.setText("Phone:");
+
+        phoneLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        phoneLabel.setForeground(new java.awt.Color(255, 255, 255));
+        phoneLabel.setText("jLabel6");
+
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel6.setText("Affiliation:");
+
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel7.setText("Area of Expertise:");
+
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel8.setText("Degree 1:");
+
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel9.setText("Degree 2:");
+
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel10.setText("Volunteer Experience:");
+
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel11.setText("Work Experience 1:");
+
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel12.setText("Work Experience 3:");
+
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel13.setText("Work Experience 2:");
+
+        jLabel14.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel14.setText("Personal Summary:");
+
+        jLabel15.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel15.setText("Career Objective:");
+
+        affiliationLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        affiliationLabel.setForeground(new java.awt.Color(255, 255, 255));
+        affiliationLabel.setText("jLabel16");
+
+        areaLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        areaLabel.setForeground(new java.awt.Color(255, 255, 255));
+        areaLabel.setText("jLabel16");
+
+        degree1Label.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        degree1Label.setForeground(new java.awt.Color(255, 255, 255));
+        degree1Label.setText("jLabel17");
+
+        degree2Label.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        degree2Label.setForeground(new java.awt.Color(255, 255, 255));
+        degree2Label.setText("jLabel18");
+
+        volexpLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        volexpLabel.setForeground(new java.awt.Color(255, 255, 255));
+        volexpLabel.setText("jLabel19");
+
+        workexp1Label.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        workexp1Label.setForeground(new java.awt.Color(255, 255, 255));
+        workexp1Label.setText("jLabel20");
+
+        workexp2Label.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        workexp2Label.setForeground(new java.awt.Color(255, 255, 255));
+        workexp2Label.setText("jLabel21");
+
+        workexp3Label.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        workexp3Label.setForeground(new java.awt.Color(255, 255, 255));
+        workexp3Label.setText("jLabel22");
+
+        personalLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        personalLabel.setForeground(new java.awt.Color(255, 255, 255));
+        personalLabel.setText("jLabel23");
+
+        careerLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        careerLabel.setForeground(new java.awt.Color(255, 255, 255));
+        careerLabel.setText("jLabel24");
+
+        jLabel16.setFont(new java.awt.Font("Algerian", 1, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel16.setText("===========================================================================================================");
+
+        jLabel18.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(0, 102, 255));
+        jLabel18.setText("Contect me");
+
+        jLabel17.setFont(new java.awt.Font("Algerian", 1, 12)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel17.setText("===========================================================================================================");
+
+        jLabel19.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 102, 255));
+        jLabel19.setText("profession");
+
+        jLabel20.setFont(new java.awt.Font("Algerian", 1, 12)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel20.setText("===========================================================================================================");
+
+        jLabel21.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(0, 102, 255));
+        jLabel21.setText("Summary");
+
+        jLabel22.setFont(new java.awt.Font("Bauhaus 93", 0, 36)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(0, 153, 255));
+        jLabel22.setText("RESUME");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 1284, Short.MAX_VALUE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(63, 63, 63)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Test, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                                    .addComponent(nameTextfield)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(Label, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(351, Short.MAX_VALUE))
+                                .addComponent(jLabel21)
+                                .addGap(61, 61, 61)
+                                .addComponent(jLabel14)
+                                .addGap(18, 18, 18)
+                                .addComponent(personalLabel))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel19))
+                                .addGap(37, 37, 37)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel11)
+                                            .addComponent(jLabel6))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(affiliationLabel)
+                                            .addComponent(workexp1Label)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(degree2Label))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(degree1Label))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(areaLabel))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(volexpLabel))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(jLabel15)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(careerLabel))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(jLabel12)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(workexp3Label)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel13)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(workexp2Label))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addGap(36, 36, 36)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                                            .addComponent(addressLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(address2Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(emailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(phoneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(Label, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(Label, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel18)
+                    .addComponent(Label, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(addressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(address2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(emailLabel))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(phoneLabel))))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(degree1Label)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(degree2Label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(volexpLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(areaLabel))
+                .addGap(19, 19, 19)
+                .addComponent(jLabel16)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(affiliationLabel)
+                    .addComponent(jLabel19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(workexp1Label))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(nameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Test, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jLabel2)
-                .addContainerGap(467, Short.MAX_VALUE))
+                    .addComponent(jLabel13)
+                    .addComponent(workexp2Label))
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(workexp3Label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(careerLabel))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel20)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(personalLabel)
+                    .addComponent(jLabel21))
+                .addGap(183, 183, 183))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void nameTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextfieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameTextfieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Label;
-    private javax.swing.JLabel Test;
+    private javax.swing.JLabel address2Label;
+    private javax.swing.JLabel addressLabel;
+    private javax.swing.JLabel affiliationLabel;
+    private javax.swing.JLabel areaLabel;
+    private javax.swing.JLabel careerLabel;
+    private javax.swing.JLabel degree1Label;
+    private javax.swing.JLabel degree2Label;
+    private javax.swing.JLabel emailLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField nameTextfield;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel personalLabel;
+    private javax.swing.JLabel phoneLabel;
+    private javax.swing.JLabel volexpLabel;
+    private javax.swing.JLabel workexp1Label;
+    private javax.swing.JLabel workexp2Label;
+    private javax.swing.JLabel workexp3Label;
     // End of variables declaration//GEN-END:variables
 }
