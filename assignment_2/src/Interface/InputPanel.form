@@ -199,7 +199,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="line1Textfield">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Insert address here!"/>
+            <Property name="text" type="java.lang.String" value="Address Line 1"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="line1TextfieldActionPerformed"/>
@@ -499,10 +499,13 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="degree2Textfield">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Degree 2"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="university1Textfield">
           <Properties>
-            <Property name="text" type="java.lang.String" value="University"/>
+            <Property name="text" type="java.lang.String" value="University 1"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="time1Textfield">
@@ -512,15 +515,21 @@
         </Component>
         <Component class="javax.swing.JTextField" name="degree1Textfield">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Degree"/>
+            <Property name="text" type="java.lang.String" value="Degree 1"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="degree1TextfieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="university2Textfield">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="University 2"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="time2Textfield">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="During..."/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="time2TextfieldActionPerformed"/>
           </Events>
@@ -653,22 +662,40 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="when2Textfield">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="When"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="when3Textfield">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="When"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="company2Textfield">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Company"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="company2TextfieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="company3Textfield">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Company"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jobdescription2Textfield">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Job description"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jobdescription2TextfieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jobdescription3Textfield">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Job description"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>

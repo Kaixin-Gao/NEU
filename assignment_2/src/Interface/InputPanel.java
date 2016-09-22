@@ -22,26 +22,24 @@ public class InputPanel extends javax.swing.JPanel {
 
     public InputPanel() {
         initComponents();
+        
     }
     private ResumeList rl;
     public InputPanel(ResumeList rl) {
         initComponents();
         this.rl=rl;
+        displayResumeList(rl);
     }
     
     
    
      private void displayResumeList(ResumeList rl)
     {
-            
-           
-           
             ImageIcon imgThisImg = new ImageIcon("src/2015.png");
             imageLabel.setIcon(imgThisImg);
-            
-            
-            
     }
+     
+     
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -118,7 +116,7 @@ public class InputPanel extends javax.swing.JPanel {
             }
         });
 
-        line1Textfield.setText("Insert address here!");
+        line1Textfield.setText("Address Line 1");
         line1Textfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 line1TextfieldActionPerformed(evt);
@@ -327,17 +325,22 @@ public class InputPanel extends javax.swing.JPanel {
 
         jLabel31.setText("(2)");
 
-        university1Textfield.setText("University");
+        degree2Textfield.setText("Degree 2");
+
+        university1Textfield.setText("University 1");
 
         time1Textfield.setText("During...");
 
-        degree1Textfield.setText("Degree");
+        degree1Textfield.setText("Degree 1");
         degree1Textfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 degree1TextfieldActionPerformed(evt);
             }
         });
 
+        university2Textfield.setText("University 2");
+
+        time2Textfield.setText("During...");
         time2Textfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 time2TextfieldActionPerformed(evt);
@@ -444,17 +447,27 @@ public class InputPanel extends javax.swing.JPanel {
 
         jobdescription1Textfield.setText("Job description");
 
+        when2Textfield.setText("When");
+
+        when3Textfield.setText("When");
+
+        company2Textfield.setText("Company");
         company2Textfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 company2TextfieldActionPerformed(evt);
             }
         });
 
+        company3Textfield.setText("Company");
+
+        jobdescription2Textfield.setText("Job description");
         jobdescription2Textfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jobdescription2TextfieldActionPerformed(evt);
             }
         });
+
+        jobdescription3Textfield.setText("Job description");
 
         jLabel9.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
         jLabel9.setText("Career Object:");
@@ -621,42 +634,7 @@ public class InputPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
-        // TODO add your handling code here:
-        /*rl.setName(firstnameTextfield.getText()+"  "+midnameTextfield.getText()+"  "+lastnameTextfield.getText());
         
-        rl.setAddress(line1Textfield.getText()+" , "+line2Textfield.getText());
-        
-        rl.setAddress2(zipTextfield.getText()+" , "+cityTextfield.getText()+" , "+countryTextfield.getText()+" , "+stateTextfield.getText());
-        
-        rl.setEmail(emailTextfield.getText());
-        
-        rl.setAffiliation(affiliationTextfield.getText());
-        
-        rl.setPhone(phoneTextfield.getText());
-        
-        rl.setArea(areaTextfield.getText());
-        
-        rl.setDegree1(degree1Textfield.getText()+" , "+university1Textfield.getText()+" , "+time1Textfield.getText());
-        
-        rl.setDegree2(degree2Textfield.getText()+" , "+university2Textfield.getText()+" , "+time2Textfield.getText());
-        
-        rl.setVolunteerexp(volTextarea.getText());
-        
-        rl.setCareerobjective(careerTextarea.getText());
-        
-        rl.setPersonsummary(personalTextarea.getText());
-        
-        rl.setWorkexp1(when1Textfield.getText()+" , "+company1Textfield.getText()+" , "+jobdescription1Textfield.getText());
-        
-        rl.setWorkexp2(when2Textfield.getText()+" , "+company2Textfield.getText()+" , "+jobdescription2Textfield.getText());
-        
-        rl.setWorkexp3(when3Textfield.getText()+" , "+company3Textfield.getText()+" , "+jobdescription3Textfield.getText());
-        */
-        
-        //double temp = Double.parseDouble(tempTF.getText());
-      //  double bp = Double.parseDouble(bloodTF.getText());
-      //  int pulse = Integer.parseInt(pulseTF.getText());
-      
         String name = firstnameTextfield.getText()+"  "+midnameTextfield.getText()+"  "+lastnameTextfield.getText();
         String address1 = line1Textfield.getText()+" , "+line2Textfield.getText();
         String address2 = zipTextfield.getText()+" , "+cityTextfield.getText()+" , "+countryTextfield.getText()+" , "+stateTextfield.getText();
@@ -672,16 +650,32 @@ public class InputPanel extends javax.swing.JPanel {
         String workexp1 = when1Textfield.getText()+" , "+company1Textfield.getText()+" , "+jobdescription1Textfield.getText() ;
         String workexp2 = when2Textfield.getText()+" , "+company2Textfield.getText()+" , "+jobdescription2Textfield.getText() ;
         String workexp3 = when3Textfield.getText()+" , "+company3Textfield.getText()+" , "+jobdescription3Textfield.getText() ;
+        
+        //Icon image = imageLabel.getIcon();
+        String image = imageLabel.getText();
       
       if((!"    ".equals(name) && name.length() != 4) && (name.replaceAll("[\u4e00-\u9fa5]*[a-z]*[A-Z]*\\d*-*_*\\s*", "").length()==0)){
-          if((email != "" && email.length() != 0) && (email.replaceAll("[\u4e00-\u9fa5]*[@]*[.]*[a-z]*[A-Z]*\\d*-*_*\\s*", "").length()==0)){
-              if((phone != "" && phone.length() != 0) && (phone.replaceAll("[\u4e00-\u9fa5]*[a-z]*[A-Z]*\\d*-*_*\\s*", "").length()==0)){
+          if((!"".equals(email) && email.length() != 0) && (email.replaceAll("[\u4e00-\u9fa5]*[@]*[.]*[a-z]*[A-Z]*\\d*-*_*\\s*", "").length()==0)){
+              if((!"".equals(phone) && phone.length() != 0) && (phone.replaceAll("[\u4e00-\u9fa5]*[a-z]*[A-Z]*\\d*-*_*\\s*", "").length()==0)){
                   
                                     Resume v = rl.addRe();
                                     v.setName(name);
                                     v.setEmail(email);
                                     v.setArea(area);
                                     v.setPhone(phone);
+                                    v.setAddress(address1);
+                                    v.setAddress2(address2);
+                                    v.setAffiliation(affiliation);
+                                    v.setDegree1(degree1);
+                                    v.setDegree2(degree2);
+                                    v.setVolunteerexp(volunteerexp);
+                                    v.setCareerobjective(careerobjective);
+                                    v.setPersonsummary(personsummary);
+                                    v.setWorkexp1(workexp1);
+                                    v.setWorkexp2(workexp2);
+                                    v.setWorkexp3(workexp3);
+                                    v.setImage(image);
+                                    
                                     
                                     JOptionPane.showMessageDialog(null,"Resume Added !");
                                     
@@ -689,11 +683,42 @@ public class InputPanel extends javax.swing.JPanel {
                              }else{JOptionPane.showMessageDialog(null,"FAILED! Please check your PHONE.");}       
           }else{JOptionPane.showMessageDialog(null,"FAILED! Please check your EMAIL.");}
       }else{JOptionPane.showMessageDialog(null,"FAILED! Please check your NAME.");}
-        //bloodTF.setText("");
-        //dateTF.setText("");
-        //pulseTF.setText("");
-        //tempTF.setText("");
+        affiliationTextfield.setText("");
+        areaTextfield.setText("");
+        careerTextarea.setText("");
+        cityTextfield.setText("");
+        company1Textfield.setText("");
+        company2Textfield.setText("");
+        company3Textfield.setText("");
+        countryTextfield.setText("");
+        degree1Textfield.setText("");
+        degree2Textfield.setText("");
+        emailTextfield.setText("");
+        firstnameTextfield.setText("");
+        midnameTextfield.setText("");
+        lastnameTextfield.setText("");
+        jobdescription1Textfield.setText("");
+        jobdescription2Textfield.setText("");
+        jobdescription3Textfield.setText("");
+        line1Textfield.setText("");
+        line2Textfield.setText("");
+        personalTextarea.setText("");
+        phoneTextfield.setText("");
+        stateTextfield.setText("");
+        time1Textfield.setText("");
+        time2Textfield.setText("");
+        university1Textfield.setText("");
+        university2Textfield.setText("");
+        volTextarea.setText("");
+        when1Textfield.setText("");
+        when2Textfield.setText("");
+        when3Textfield.setText("");
+        zipTextfield.setText("");
         
+        ImageIcon imgThisImg = new ImageIcon("src/2015.png");
+            imageLabel.setIcon(imgThisImg);
+            imageLabel.setText("src/2015.png");
+       
 
     }//GEN-LAST:event_createBtnActionPerformed
 
@@ -734,7 +759,7 @@ public class InputPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_company2TextfieldActionPerformed
 
     private void UploadimageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UploadimageButtonActionPerformed
-        // TODO add your handling code here:
+        
          JFileChooser fileChooser = new JFileChooser();
          fileChooser.setAcceptAllFileFilterUsed(false);
         FileNameExtensionFilter filter = new FileNameExtensionFilter("JPEG Image", "jpg");
@@ -742,22 +767,18 @@ public class InputPanel extends javax.swing.JPanel {
         int returnValue = fileChooser.showOpenDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
-            //rl.setImage(selectedFile.getAbsolutePath());
-        
-        
-            //String path = selectedFile.getAbsolutePath();  
             ImageIcon imageIcon = new ImageIcon(selectedFile.getAbsolutePath()); 
-            Image image = imageIcon.getImage(); 
-            
-            Image newimg = image.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-            //imageIcon = new ImageIcon(newimg); 
-
+            //String image = selectedFile.getAbsolutePath();
+            imageLabel.setText(selectedFile.getAbsolutePath());
+            Image temp = imageIcon.getImage();
+            Image newimg = temp.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH);
             ImageIcon imgThisImg = new ImageIcon(newimg);
             imageLabel.setIcon(imgThisImg);
         }
         else{
             ImageIcon imgThisImg = new ImageIcon("src/2015.png");
             imageLabel.setIcon(imgThisImg);
+            imageLabel.setText("src/2015.png");
         }
         
 
