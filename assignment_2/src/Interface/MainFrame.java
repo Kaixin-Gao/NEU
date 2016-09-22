@@ -23,10 +23,10 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */ 
-    private ResumeList RL;
+    private ResumeList rl;
     public MainFrame() {
         initComponents();
-        RL=new ResumeList();
+        rl=new ResumeList();
     }
 
     /**
@@ -153,14 +153,14 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
         // TODO add your handling code here:
-        InputPanel inputPanel=new InputPanel(resume);
+        InputPanel inputPanel=new InputPanel(rl);
         SplitPanel.setRightComponent(inputPanel);
 
     }//GEN-LAST:event_createBtnActionPerformed
 
     private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
 
-        ViewPanel viewPanel=new ViewPanel(resume);
+        ViewPanel viewPanel=new ViewPanel(rl);
         SplitPanel.setRightComponent(viewPanel);
 
     }//GEN-LAST:event_viewBtnActionPerformed

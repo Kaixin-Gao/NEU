@@ -10,27 +10,27 @@ import java.util.ArrayList;
  * @author Max
  */
 public class ResumeList {
-    private ArrayList<Resume> ResumeList;
+    private ArrayList<Resume> resumeList;
     
     public ResumeList(){
-        ResumeList = new ArrayList<Resume>();
+        resumeList = new ArrayList<Resume>();
     }
 
-    public ArrayList<Resume> getVitalSignHistory() {
-        return ResumeList;
+    public ArrayList<Resume> getResumeList() {
+        return resumeList;
     }
 
-    public void setVitalSignHistory(ArrayList<Resume> VitalSignHistory) {
-        this.ResumeList = VitalSignHistory;
+    public void setResumeList(ArrayList<Resume> ResumeList) {
+        this.resumeList = ResumeList;
     }
     
-    public Resume addVitals(){
-        Resume vs = new Resume();
-        ResumeList.add(vs);
-        return vs;
+    public Resume addRe(){
+        Resume r = new Resume();
+        resumeList.add(r);
+        return r;
     }
-    public void deleteVitals(Resume v)
+    public void deleteRe(Resume v)
     {
-    ResumeList.remove(v);
+    resumeList.remove(v);
     }
 }

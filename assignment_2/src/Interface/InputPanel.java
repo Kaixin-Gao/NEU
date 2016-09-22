@@ -20,16 +20,18 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class InputPanel extends javax.swing.JPanel {
 
-    
-    private Resume resume;
-    public InputPanel(Resume resume) {
+    public InputPanel() {
         initComponents();
-        this.resume=resume;
-         displayResume(resume);
+    }
+    private ResumeList rl;
+    public InputPanel(ResumeList rl) {
+        initComponents();
+        this.rl=rl;
     }
     
+    
    
-     private void displayResume(Resume resume)
+     private void displayResumeList(ResumeList rl)
     {
             
            
@@ -545,13 +547,13 @@ public class InputPanel extends javax.swing.JPanel {
             jLayeredPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jLayeredPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
+                .addGroup(jLayeredPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel17)
                         .addComponent(when1Textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(company1Textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jobdescription1Textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jobdescription1Textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel21))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jLayeredPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
@@ -620,39 +622,78 @@ public class InputPanel extends javax.swing.JPanel {
 
     private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
         // TODO add your handling code here:
-        resume.setName(firstnameTextfield.getText()+"  "+midnameTextfield.getText()+"  "+lastnameTextfield.getText());
+        /*rl.setName(firstnameTextfield.getText()+"  "+midnameTextfield.getText()+"  "+lastnameTextfield.getText());
         
-        resume.setAddress(line1Textfield.getText()+" , "+line2Textfield.getText());
+        rl.setAddress(line1Textfield.getText()+" , "+line2Textfield.getText());
         
-        resume.setAddress2(zipTextfield.getText()+" , "+cityTextfield.getText()+" , "+countryTextfield.getText()+" , "+stateTextfield.getText());
+        rl.setAddress2(zipTextfield.getText()+" , "+cityTextfield.getText()+" , "+countryTextfield.getText()+" , "+stateTextfield.getText());
         
-        resume.setEmail(emailTextfield.getText());
+        rl.setEmail(emailTextfield.getText());
         
-        resume.setAffiliation(affiliationTextfield.getText());
+        rl.setAffiliation(affiliationTextfield.getText());
         
-        resume.setPhone(phoneTextfield.getText());
+        rl.setPhone(phoneTextfield.getText());
         
-        resume.setArea(areaTextfield.getText());
+        rl.setArea(areaTextfield.getText());
         
-        resume.setDegree1(degree1Textfield.getText()+" , "+university1Textfield.getText()+" , "+time1Textfield.getText());
+        rl.setDegree1(degree1Textfield.getText()+" , "+university1Textfield.getText()+" , "+time1Textfield.getText());
         
-        resume.setDegree2(degree2Textfield.getText()+" , "+university2Textfield.getText()+" , "+time2Textfield.getText());
+        rl.setDegree2(degree2Textfield.getText()+" , "+university2Textfield.getText()+" , "+time2Textfield.getText());
         
-        resume.setVolunteerexp(volTextarea.getText());
+        rl.setVolunteerexp(volTextarea.getText());
         
-        resume.setCareerobjective(careerTextarea.getText());
+        rl.setCareerobjective(careerTextarea.getText());
         
-        resume.setPersonsummary(personalTextarea.getText());
+        rl.setPersonsummary(personalTextarea.getText());
         
-        resume.setWorkexp1(when1Textfield.getText()+" , "+company1Textfield.getText()+" , "+jobdescription1Textfield.getText());
+        rl.setWorkexp1(when1Textfield.getText()+" , "+company1Textfield.getText()+" , "+jobdescription1Textfield.getText());
         
-        resume.setWorkexp2(when2Textfield.getText()+" , "+company2Textfield.getText()+" , "+jobdescription2Textfield.getText());
+        rl.setWorkexp2(when2Textfield.getText()+" , "+company2Textfield.getText()+" , "+jobdescription2Textfield.getText());
         
-        resume.setWorkexp3(when3Textfield.getText()+" , "+company3Textfield.getText()+" , "+jobdescription3Textfield.getText());
+        rl.setWorkexp3(when3Textfield.getText()+" , "+company3Textfield.getText()+" , "+jobdescription3Textfield.getText());
+        */
         
-     
+        //double temp = Double.parseDouble(tempTF.getText());
+      //  double bp = Double.parseDouble(bloodTF.getText());
+      //  int pulse = Integer.parseInt(pulseTF.getText());
+      
+        String name = firstnameTextfield.getText()+"  "+midnameTextfield.getText()+"  "+lastnameTextfield.getText();
+        String address1 = line1Textfield.getText()+" , "+line2Textfield.getText();
+        String address2 = zipTextfield.getText()+" , "+cityTextfield.getText()+" , "+countryTextfield.getText()+" , "+stateTextfield.getText();
+        String email = emailTextfield.getText();
+        String affiliation = affiliationTextfield.getText();
+        String phone = phoneTextfield.getText();
+        String area = areaTextfield.getText();
+        String degree1 = degree1Textfield.getText()+" , "+university1Textfield.getText()+" , "+time1Textfield.getText() ;
+        String degree2 = degree2Textfield.getText()+" , "+university2Textfield.getText()+" , "+time2Textfield.getText() ;
+        String volunteerexp = volTextarea.getText() ;
+        String careerobjective = careerTextarea.getText() ;
+        String personsummary = personalTextarea.getText() ;
+        String workexp1 = when1Textfield.getText()+" , "+company1Textfield.getText()+" , "+jobdescription1Textfield.getText() ;
+        String workexp2 = when2Textfield.getText()+" , "+company2Textfield.getText()+" , "+jobdescription2Textfield.getText() ;
+        String workexp3 = when3Textfield.getText()+" , "+company3Textfield.getText()+" , "+jobdescription3Textfield.getText() ;
+      
+      if((!"    ".equals(name) && name.length() != 4) && (name.replaceAll("[\u4e00-\u9fa5]*[a-z]*[A-Z]*\\d*-*_*\\s*", "").length()==0)){
+          if((email != "" && email.length() != 0) && (email.replaceAll("[\u4e00-\u9fa5]*[@]*[.]*[a-z]*[A-Z]*\\d*-*_*\\s*", "").length()==0)){
+              if((phone != "" && phone.length() != 0) && (phone.replaceAll("[\u4e00-\u9fa5]*[a-z]*[A-Z]*\\d*-*_*\\s*", "").length()==0)){
+                  
+                                    Resume v = rl.addRe();
+                                    v.setName(name);
+                                    v.setEmail(email);
+                                    v.setArea(area);
+                                    v.setPhone(phone);
+                                    
+                                    JOptionPane.showMessageDialog(null,"Resume Added !");
+                                    
+                                    
+                             }else{JOptionPane.showMessageDialog(null,"FAILED! Please check your PHONE.");}       
+          }else{JOptionPane.showMessageDialog(null,"FAILED! Please check your EMAIL.");}
+      }else{JOptionPane.showMessageDialog(null,"FAILED! Please check your NAME.");}
+        //bloodTF.setText("");
+        //dateTF.setText("");
+        //pulseTF.setText("");
+        //tempTF.setText("");
         
-        JOptionPane.showMessageDialog(null,"Create Resume Successfully!\nPress view to check out.");
 
     }//GEN-LAST:event_createBtnActionPerformed
 
@@ -700,18 +741,26 @@ public class InputPanel extends javax.swing.JPanel {
         fileChooser.addChoosableFileFilter(filter);
         int returnValue = fileChooser.showOpenDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
-          File selectedFile = fileChooser.getSelectedFile();
-          resume.setImage(selectedFile.getAbsolutePath());
-        }
+            File selectedFile = fileChooser.getSelectedFile();
+            //rl.setImage(selectedFile.getAbsolutePath());
         
-               String path = resume.getImage();  
-            ImageIcon imageIcon = new ImageIcon(path); 
+        
+            //String path = selectedFile.getAbsolutePath();  
+            ImageIcon imageIcon = new ImageIcon(selectedFile.getAbsolutePath()); 
             Image image = imageIcon.getImage(); 
+            
             Image newimg = image.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-            imageIcon = new ImageIcon(newimg); 
+            //imageIcon = new ImageIcon(newimg); 
 
             ImageIcon imgThisImg = new ImageIcon(newimg);
             imageLabel.setIcon(imgThisImg);
+        }
+        else{
+            ImageIcon imgThisImg = new ImageIcon("src/2015.png");
+            imageLabel.setIcon(imgThisImg);
+        }
+        
+
     }//GEN-LAST:event_UploadimageButtonActionPerformed
 
     private void time2TextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_time2TextfieldActionPerformed
@@ -758,13 +807,9 @@ public class InputPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JLayeredPane jLayeredPane3;
     private javax.swing.JLayeredPane jLayeredPane4;
     private javax.swing.JLayeredPane jLayeredPane5;
-    private javax.swing.JLayeredPane jLayeredPane6;
-    private javax.swing.JLayeredPane jLayeredPane7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

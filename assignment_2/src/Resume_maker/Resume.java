@@ -160,7 +160,12 @@ public class Resume {
     }
 
 
-    
+    @Override
+    public String toString()
+    {
+        return this.name;
+        
+    }
 
     
     

@@ -8,6 +8,8 @@ import Resume_maker.Resume;
 import Resume_maker.ResumeList;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,60 +20,77 @@ public class ViewPanel extends javax.swing.JPanel {
     /**
      * Creates new form viewJPanel
      */
-    private Resume resume;
-    public ViewPanel(Resume resume) {
+    private ResumeList rl;
+    public ViewPanel(ResumeList rl) {
         initComponents();
-        displayResume(resume);
+        this.rl = rl;
+        populateTable();
+        
     }
     
-    private void displayResume(Resume resume)
+    public void populateTable()
     {
-            String resumeName=resume.getName();   
-            nameLabel.setText(resumeName);
+        DefaultTableModel dtm = (DefaultTableModel)tblResume.getModel();
+        dtm.setRowCount(0);
+        
+        for(Resume r : rl.getResumeList())
+        {Object row[] = new Object[2];
+        row[0] = r;
+        row[1]= r.getArea();
+        dtm.addRow(row);
+        
+        }
+    }
+    
+    
+   /* private void displayResumeList(ResumeList rl)
+    {
+            String rlName=rl.getName();   
+            nameLabel.setText(rlName);
             
-            String resumeAddress=resume.getAddress();
-            addressLabel.setText(resumeAddress);
+            String rlAddress=rl.getAddress();
+            addressLabel.setText(rlAddress);
             
-            String resumeAddress2=resume.getAddress2();
-            address2Label.setText(resumeAddress2);
+            String rlAddress2=rl.getAddress2();
+            address2Label.setText(rlAddress2);
             
-            String resumeEmail=resume.getEmail();
-            emailLabel.setText(resumeEmail);
+            String rlEmail=rl.getEmail();
+            emailLabel.setText(rlEmail);
             
-            String resumeAffiliation=resume.getAffiliation();
-            affiliationLabel.setText(resumeAffiliation);
+            String rlAffiliation=rl.getAffiliation();
+            affiliationLabel.setText(rlAffiliation);
             
-            String resumePhone=resume.getPhone();
-            phoneLabel.setText(resumePhone);
+            String rlPhone=rl.getPhone();
+            phoneLabel.setText(rlPhone);
             
-            String resumeArea=resume.getArea();
-            areaLabel.setText(resumeArea);
+            String rlArea=rl.getArea();
+            areaLabel.setText(rlArea);
             
-            String resumeDegree1=resume.getDegree1();
-            degree1Label.setText(resumeDegree1);
+            String rlDegree1=rl.getDegree1();
+            degree1Label.setText(rlDegree1);
             
-            String resumeDegree2=resume.getDegree2();
-            degree2Label.setText(resumeDegree2);
+            String rlDegree2=rl.getDegree2();
+            degree2Label.setText(rlDegree2);
             
-            String resumeVolunteerexp=resume.getVolunteerexp();
-            volexpLabel.setText(resumeVolunteerexp);
+            String rlVolunteerexp=rl.getVolunteerexp();
+            volexpLabel.setText(rlVolunteerexp);
             
-            String resumeCareerobjective=resume.getCareerobjective();
-            careerLabel.setText(resumeCareerobjective);
+            String rlCareerobjective=rl.getCareerobjective();
+            careerLabel.setText(rlCareerobjective);
             
-            String resumePersonsummary=resume.getPersonsummary();
-            personalLabel.setText(resumePersonsummary);
+            String rlPersonsummary=rl.getPersonsummary();
+            personalLabel.setText(rlPersonsummary);
             
-            String resumeWorkexp1=resume.getWorkexp1();
-            workexp1Label.setText(resumeWorkexp1);
+            String rlWorkexp1=rl.getWorkexp1();
+            workexp1Label.setText(rlWorkexp1);
             
-            String resumeWorkexp2=resume.getWorkexp2();
-            workexp2Label.setText(resumeWorkexp2);
+            String rlWorkexp2=rl.getWorkexp2();
+            workexp2Label.setText(rlWorkexp2);
             
-            String resumeWorkexp3=resume.getWorkexp3();
-            workexp3Label.setText(resumeWorkexp3);
+            String rlWorkexp3=rl.getWorkexp3();
+            workexp3Label.setText(rlWorkexp3);
             
-            String path = resume.getImage();
+            String path = rl.getImage();
             if (path != null){
                 
             ImageIcon imageIcon = new ImageIcon(path); 
@@ -87,7 +106,7 @@ public class ViewPanel extends javax.swing.JPanel {
             
             
             
-    }
+    }*/
    
     /**
      * This method is called from within the constructor to initialize the form.
@@ -137,8 +156,13 @@ public class ViewPanel extends javax.swing.JPanel {
         personalLabel = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblResume = new javax.swing.JTable();
+        btnViewDetail = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(51, 51, 255));
 
         jLabel22.setFont(new java.awt.Font("Bauhaus 93", 0, 36)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(0, 153, 255));
@@ -150,40 +174,34 @@ public class ViewPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(51, 204, 255));
         jLabel1.setText("Name:");
 
+        nameLabel.setBackground(new java.awt.Color(204, 204, 204));
         nameLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        nameLabel.setForeground(new java.awt.Color(255, 255, 255));
-        nameLabel.setText("jLabel3");
 
         Label.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        Label.setText("jLabel3");
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 204, 255));
         jLabel3.setText("Address:");
 
+        addressLabel.setBackground(new java.awt.Color(204, 204, 204));
         addressLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        addressLabel.setForeground(new java.awt.Color(255, 255, 255));
-        addressLabel.setText("jLabel4");
 
+        address2Label.setBackground(new java.awt.Color(204, 204, 204));
         address2Label.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        address2Label.setForeground(new java.awt.Color(255, 255, 255));
-        address2Label.setText("jLabel4");
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 204, 255));
         jLabel4.setText("Email:");
 
+        emailLabel.setBackground(new java.awt.Color(204, 204, 204));
         emailLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        emailLabel.setForeground(new java.awt.Color(255, 255, 255));
-        emailLabel.setText("jLabel5");
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 204, 255));
         jLabel5.setText("Phone:");
 
+        phoneLabel.setBackground(new java.awt.Color(204, 204, 204));
         phoneLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        phoneLabel.setForeground(new java.awt.Color(255, 255, 255));
-        phoneLabel.setText("jLabel6");
 
         jLabel18.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 102, 255));
@@ -253,23 +271,20 @@ public class ViewPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLayeredPane2.setBackground(new java.awt.Color(204, 204, 204));
         jLayeredPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        areaLabel.setBackground(new java.awt.Color(204, 204, 204));
         areaLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        areaLabel.setForeground(new java.awt.Color(255, 255, 255));
-        areaLabel.setText("jLabel16");
 
+        degree1Label.setBackground(new java.awt.Color(204, 204, 204));
         degree1Label.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        degree1Label.setForeground(new java.awt.Color(255, 255, 255));
-        degree1Label.setText("jLabel17");
 
+        degree2Label.setBackground(new java.awt.Color(204, 204, 204));
         degree2Label.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        degree2Label.setForeground(new java.awt.Color(255, 255, 255));
-        degree2Label.setText("jLabel18");
 
+        volexpLabel.setBackground(new java.awt.Color(204, 204, 204));
         volexpLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        volexpLabel.setForeground(new java.awt.Color(255, 255, 255));
-        volexpLabel.setText("jLabel19");
 
         jLabel2.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 255));
@@ -311,22 +326,23 @@ public class ViewPanel extends javax.swing.JPanel {
                 .addGap(37, 37, 37)
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
-                        .addComponent(degree2Label))
-                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(degree1Label))
-                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(areaLabel))
+                        .addComponent(areaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addGap(18, 18, 18)
-                        .addComponent(volexpLabel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(volexpLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jLayeredPane2Layout.createSequentialGroup()
+                            .addComponent(jLabel9)
+                            .addGap(18, 18, 18)
+                            .addComponent(degree2Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jLayeredPane2Layout.createSequentialGroup()
+                            .addComponent(jLabel8)
+                            .addGap(18, 18, 18)
+                            .addComponent(degree1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
         jLayeredPane2Layout.setVerticalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,25 +369,20 @@ public class ViewPanel extends javax.swing.JPanel {
 
         jLayeredPane3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        affiliationLabel.setBackground(new java.awt.Color(204, 204, 204));
         affiliationLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        affiliationLabel.setForeground(new java.awt.Color(255, 255, 255));
-        affiliationLabel.setText("jLabel16");
 
+        workexp1Label.setBackground(new java.awt.Color(204, 204, 204));
         workexp1Label.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        workexp1Label.setForeground(new java.awt.Color(255, 255, 255));
-        workexp1Label.setText("jLabel20");
 
+        workexp2Label.setBackground(new java.awt.Color(204, 204, 204));
         workexp2Label.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        workexp2Label.setForeground(new java.awt.Color(255, 255, 255));
-        workexp2Label.setText("jLabel21");
 
+        workexp3Label.setBackground(new java.awt.Color(204, 204, 204));
         workexp3Label.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        workexp3Label.setForeground(new java.awt.Color(255, 255, 255));
-        workexp3Label.setText("jLabel22");
 
+        careerLabel.setBackground(new java.awt.Color(204, 204, 204));
         careerLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        careerLabel.setForeground(new java.awt.Color(255, 255, 255));
-        careerLabel.setText("jLabel24");
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(51, 204, 255));
@@ -417,30 +428,29 @@ public class ViewPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel19)
                 .addGap(37, 37, 37)
-                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jLayeredPane3Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(jLabel6))
                         .addGap(18, 18, 18)
-                        .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(affiliationLabel)
-                            .addComponent(workexp1Label)))
-                    .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jLayeredPane3Layout.createSequentialGroup()
-                            .addComponent(jLabel15)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(careerLabel))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jLayeredPane3Layout.createSequentialGroup()
-                            .addComponent(jLabel12)
-                            .addGap(18, 18, 18)
-                            .addComponent(workexp3Label)))
+                        .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(affiliationLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(workexp1Label, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)))
+                    .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addGap(35, 35, 35)
+                        .addComponent(careerLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(workexp3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jLayeredPane3Layout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addGap(18, 18, 18)
-                        .addComponent(workexp2Label)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(workexp2Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(270, Short.MAX_VALUE))
         );
         jLayeredPane3Layout.setVerticalGroup(
             jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -471,9 +481,8 @@ public class ViewPanel extends javax.swing.JPanel {
 
         jLayeredPane4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        personalLabel.setBackground(new java.awt.Color(204, 204, 204));
         personalLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        personalLabel.setForeground(new java.awt.Color(255, 255, 255));
-        personalLabel.setText("jLabel23");
 
         jLabel21.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(0, 102, 255));
@@ -496,9 +505,9 @@ public class ViewPanel extends javax.swing.JPanel {
                 .addComponent(jLabel21)
                 .addGap(61, 61, 61)
                 .addComponent(jLabel14)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(personalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jLayeredPane4Layout.setVerticalGroup(
             jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -516,41 +525,122 @@ public class ViewPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        tblResume.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null}
+            },
+            new String [] {
+                "Name", "Area"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblResume);
+        if (tblResume.getColumnModel().getColumnCount() > 0) {
+            tblResume.getColumnModel().getColumn(0).setResizable(false);
+            tblResume.getColumnModel().getColumn(1).setResizable(false);
+        }
+
+        btnViewDetail.setText("View Detail");
+        btnViewDetail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewDetailActionPerformed(evt);
+            }
+        });
+
+        btnDelete.setText("Delect Selected");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLayeredPane2, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLayeredPane3, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(273, 273, 273)
-                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(299, 299, 299)
+                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(96, 96, 96)
+                        .addComponent(btnViewDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(btnDelete)))
+                .addContainerGap(274, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(262, 262, 262)
-                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnViewDetail)
+                        .addComponent(btnDelete)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(315, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnViewDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailActionPerformed
+        // TODO add your handling code here:
+        
+         int selectedrow=tblResume.getSelectedRow();
+        if(selectedrow >=0)
+        {
+            Resume r = (Resume)tblResume.getValueAt(selectedrow, 0);
+            //bloodTF.setText(String.valueOf(r.getBloodpressure()));
+            nameLabel.setText(r.getName());
+            emailLabel.setText(r.getEmail());
+            areaLabel.setText(r.getArea());
+            phoneLabel.setText(r.getPhone());
+            //pulseTF.setText(String.valueOf(r.getPulse()));
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Please select a row first");
+        }
+    }//GEN-LAST:event_btnViewDetailActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        
+        int selectedrow=tblResume.getSelectedRow();
+        if(selectedrow >=0)
+        {
+            Resume r = (Resume)tblResume.getValueAt(selectedrow, 0);
+            rl.deleteRe(r);
+            JOptionPane.showMessageDialog(null,"Selected row deleted !");
+            populateTable();
+        }
+        else{
+                 JOptionPane.showMessageDialog(null,"Please select a row !");
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -559,6 +649,8 @@ public class ViewPanel extends javax.swing.JPanel {
     private javax.swing.JLabel addressLabel;
     private javax.swing.JLabel affiliationLabel;
     private javax.swing.JLabel areaLabel;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnViewDetail;
     private javax.swing.JLabel careerLabel;
     private javax.swing.JLabel degree1Label;
     private javax.swing.JLabel degree2Label;
@@ -586,9 +678,11 @@ public class ViewPanel extends javax.swing.JPanel {
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JLayeredPane jLayeredPane3;
     private javax.swing.JLayeredPane jLayeredPane4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel personalLabel;
     private javax.swing.JLabel phoneLabel;
+    private javax.swing.JTable tblResume;
     private javax.swing.JLabel volexpLabel;
     private javax.swing.JLabel workexp1Label;
     private javax.swing.JLabel workexp2Label;
