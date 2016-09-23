@@ -103,6 +103,23 @@ public class InputPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         personalTextarea = new javax.swing.JTextArea();
         createBtn = new javax.swing.JButton();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        femaleRB = new javax.swing.JRadioButton();
+        maleRB = new javax.swing.JRadioButton();
+        internationalRB = new javax.swing.JRadioButton();
+        citizenRB = new javax.swing.JRadioButton();
+        graduatedRB = new javax.swing.JRadioButton();
+        ungraduatedRB = new javax.swing.JRadioButton();
+        gander = new javax.swing.JLabel();
+        national = new javax.swing.JLabel();
+        graduate = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        javaCB = new javax.swing.JCheckBox();
+        cppCB = new javax.swing.JCheckBox();
+        chongCB = new javax.swing.JCheckBox();
+        phpCB = new javax.swing.JCheckBox();
+        pythonCB = new javax.swing.JCheckBox();
+        jsCB = new javax.swing.JCheckBox();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -403,7 +420,7 @@ public class InputPanel extends javax.swing.JPanel {
                                             .addComponent(university2Textfield))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(time1Textfield, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                                            .addComponent(time1Textfield, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                                             .addComponent(time2Textfield))))))))
                 .addContainerGap())
         );
@@ -551,9 +568,9 @@ public class InputPanel extends javax.swing.JPanel {
                                 .addComponent(company1Textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jLayeredPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jobdescription3Textfield)
+                            .addComponent(jobdescription3Textfield, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
                             .addComponent(jobdescription2Textfield)
-                            .addComponent(jobdescription1Textfield, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE))))
+                            .addComponent(jobdescription1Textfield))))
                 .addContainerGap())
         );
         jLayeredPane5Layout.setVerticalGroup(
@@ -597,42 +614,210 @@ public class InputPanel extends javax.swing.JPanel {
             }
         });
 
+        jLayeredPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        femaleRB.setText("Female");
+        femaleRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                femaleRBActionPerformed(evt);
+            }
+        });
+
+        maleRB.setText("Male");
+        maleRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maleRBActionPerformed(evt);
+            }
+        });
+
+        internationalRB.setText("International");
+        internationalRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                internationalRBActionPerformed(evt);
+            }
+        });
+
+        citizenRB.setText("Citizen");
+        citizenRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                citizenRBActionPerformed(evt);
+            }
+        });
+
+        graduatedRB.setText("Graduated");
+        graduatedRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                graduatedRBActionPerformed(evt);
+            }
+        });
+
+        ungraduatedRB.setText("Ungraduated");
+        ungraduatedRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ungraduatedRBActionPerformed(evt);
+            }
+        });
+
+        gander.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
+        gander.setText("Gander:");
+
+        national.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
+        national.setText("nation:");
+
+        graduate.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
+        graduate.setText("graduate:");
+
+        jLabel10.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
+        jLabel10.setText("Skills:");
+
+        javaCB.setText("Java ");
+
+        cppCB.setText("C++ ");
+
+        chongCB.setText("C#");
+
+        phpCB.setText("PHP ");
+        phpCB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phpCBActionPerformed(evt);
+            }
+        });
+
+        pythonCB.setText("Python ");
+
+        jsCB.setText("JS ");
+
+        jLayeredPane1.setLayer(femaleRB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(maleRB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(internationalRB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(citizenRB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(graduatedRB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(ungraduatedRB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(gander, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(national, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(graduate, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(javaCB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(cppCB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(chongCB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(phpCB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(pythonCB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jsCB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(gander, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(femaleRB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(maleRB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(citizenRB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(internationalRB))
+                    .addComponent(national, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(graduate, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(ungraduatedRB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(graduatedRB, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(javaCB)
+                            .addComponent(cppCB))
+                        .addGap(18, 18, 18)
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chongCB)
+                            .addComponent(phpCB))
+                        .addGap(16, 16, 16)
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jsCB)
+                            .addComponent(pythonCB))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(gander)
+                    .addComponent(national)
+                    .addComponent(graduate)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(femaleRB)
+                    .addComponent(internationalRB)
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(graduatedRB)
+                            .addComponent(javaCB)
+                            .addComponent(chongCB)
+                            .addComponent(pythonCB))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ungraduatedRB)
+                            .addComponent(citizenRB)
+                            .addComponent(maleRB)
+                            .addComponent(cppCB)
+                            .addComponent(phpCB)
+                            .addComponent(jsCB))))
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLayeredPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(createBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(createBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLayeredPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLayeredPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
+                                .addComponent(jLayeredPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(jLayeredPane1, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(510, 510, 510))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7)
-                        .addGap(510, 510, 510))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(jLayeredPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(createBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(20, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jLayeredPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(createBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
         
         String name = firstnameTextfield.getText()+"  "+midnameTextfield.getText()+"  "+lastnameTextfield.getText();
@@ -651,9 +836,8 @@ public class InputPanel extends javax.swing.JPanel {
         String workexp2 = when2Textfield.getText()+" , "+company2Textfield.getText()+" , "+jobdescription2Textfield.getText() ;
         String workexp3 = when3Textfield.getText()+" , "+company3Textfield.getText()+" , "+jobdescription3Textfield.getText() ;
         
-        //Icon image = imageLabel.getIcon();
         String image = imageLabel.getText();
-      
+        
       if((!"    ".equals(name) && name.length() != 4) && (name.replaceAll("[\u4e00-\u9fa5]*[a-z]*[A-Z]*\\d*-*_*\\s*", "").length()==0)){
           if((!"".equals(email) && email.length() != 0) && (email.replaceAll("[\u4e00-\u9fa5]*[@]*[.]*[a-z]*[A-Z]*\\d*-*_*\\s*", "").length()==0)){
               if((!"".equals(phone) && phone.length() != 0) && (phone.replaceAll("[\u4e00-\u9fa5]*[a-z]*[A-Z]*\\d*-*_*\\s*", "").length()==0)){
@@ -676,6 +860,26 @@ public class InputPanel extends javax.swing.JPanel {
                                     v.setWorkexp3(workexp3);
                                     v.setImage(image);
                                     
+                                   if(femaleRB.isSelected()){
+                                    v.setSex("Female");
+                                     }else{v.setSex("Male");}
+                                   
+                                    if(internationalRB.isSelected()){
+                                    v.setNation("International");
+                                     }else{v.setNation("Ctizen");}
+                                    
+                                    if(graduatedRB.isSelected()){
+                                    v.setGraduated("Graduated");
+                                     }else{v.setGraduated("Ungraduated");}
+                                    
+                                    String skills = "";
+                                    if(javaCB.isSelected()){skills = skills + "Java, ";}
+                                    if(cppCB.isSelected()){skills = skills + "C++, ";}
+                                    if(chongCB.isSelected()){skills = skills + "C#, ";}
+                                    if(phpCB.isSelected()){skills = skills + "PHP, ";}
+                                    if(pythonCB.isSelected()){skills = skills + "Python, ";}
+                                    if(jsCB.isSelected()){skills = skills + "JS, ";}
+                                    v.setSkills(skills);
                                     
                                     JOptionPane.showMessageDialog(null,"Resume Added !");
                                     
@@ -792,6 +996,60 @@ public class InputPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_degree1TextfieldActionPerformed
 
+    private void femaleRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleRBActionPerformed
+        // TODO add your handling code here:
+       
+         if(femaleRB.isSelected()){
+             maleRB.setSelected(false);
+             // gander.setText("Female");
+              
+         }
+    }//GEN-LAST:event_femaleRBActionPerformed
+
+    private void maleRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleRBActionPerformed
+        // TODO add your handling code here:
+        if(maleRB.isSelected()){
+             femaleRB.setSelected(false);
+             //gander.setText("Male");
+         }
+    }//GEN-LAST:event_maleRBActionPerformed
+
+    private void internationalRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_internationalRBActionPerformed
+        // TODO add your handling code here:
+        if(internationalRB.isSelected()){
+             citizenRB.setSelected(false);
+            // national.setText("International");
+         }
+    }//GEN-LAST:event_internationalRBActionPerformed
+
+    private void citizenRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_citizenRBActionPerformed
+        // TODO add your handling code here:
+        if(citizenRB.isSelected()){
+             internationalRB.setSelected(false);
+             //national.setText("Ctizen");
+         }
+    }//GEN-LAST:event_citizenRBActionPerformed
+
+    private void graduatedRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graduatedRBActionPerformed
+        // TODO add your handling code here:
+        if(graduatedRB.isSelected()){
+             ungraduatedRB.setSelected(false);
+             //graduate.setText("Graduated");
+         }
+    }//GEN-LAST:event_graduatedRBActionPerformed
+
+    private void ungraduatedRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ungraduatedRBActionPerformed
+        // TODO add your handling code here:
+        if(ungraduatedRB.isSelected()){
+            graduatedRB.setSelected(false);
+            //graduate.setText("Ungraduated");
+        }
+    }//GEN-LAST:event_ungraduatedRBActionPerformed
+
+    private void phpCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phpCBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_phpCBActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -799,17 +1057,26 @@ public class InputPanel extends javax.swing.JPanel {
     private javax.swing.JTextField affiliationTextfield;
     private javax.swing.JTextField areaTextfield;
     private javax.swing.JTextArea careerTextarea;
+    private javax.swing.JCheckBox chongCB;
+    private javax.swing.JRadioButton citizenRB;
     private javax.swing.JTextField cityTextfield;
     private javax.swing.JTextField company1Textfield;
     private javax.swing.JTextField company2Textfield;
     private javax.swing.JTextField company3Textfield;
     private javax.swing.JTextField countryTextfield;
+    private javax.swing.JCheckBox cppCB;
     private javax.swing.JButton createBtn;
     private javax.swing.JTextField degree1Textfield;
     private javax.swing.JTextField degree2Textfield;
     private javax.swing.JTextField emailTextfield;
+    private javax.swing.JRadioButton femaleRB;
     private javax.swing.JTextField firstnameTextfield;
+    private javax.swing.JLabel gander;
+    private javax.swing.JLabel graduate;
+    private javax.swing.JRadioButton graduatedRB;
     private javax.swing.JLabel imageLabel;
+    private javax.swing.JRadioButton internationalRB;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -828,24 +1095,32 @@ public class InputPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane3;
     private javax.swing.JLayeredPane jLayeredPane4;
     private javax.swing.JLayeredPane jLayeredPane5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JCheckBox javaCB;
     private javax.swing.JTextField jobdescription1Textfield;
     private javax.swing.JTextField jobdescription2Textfield;
     private javax.swing.JTextField jobdescription3Textfield;
+    private javax.swing.JCheckBox jsCB;
     private javax.swing.JTextField lastnameTextfield;
     private javax.swing.JTextField line1Textfield;
     private javax.swing.JTextField line2Textfield;
+    private javax.swing.JRadioButton maleRB;
     private javax.swing.JTextField midnameTextfield;
+    private javax.swing.JLabel national;
     private javax.swing.JTextArea personalTextarea;
     private javax.swing.JTextField phoneTextfield;
+    private javax.swing.JCheckBox phpCB;
+    private javax.swing.JCheckBox pythonCB;
     private javax.swing.JTextField stateTextfield;
     private javax.swing.JTextField time1Textfield;
     private javax.swing.JTextField time2Textfield;
+    private javax.swing.JRadioButton ungraduatedRB;
     private javax.swing.JTextField university1Textfield;
     private javax.swing.JTextField university2Textfield;
     private javax.swing.JTextArea volTextarea;

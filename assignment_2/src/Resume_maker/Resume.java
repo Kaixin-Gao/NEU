@@ -27,6 +27,43 @@ public class Resume {
     private String personsummary;
     private String careerobjective;
     private String image;
+    private String sex;
+    private String skills;
+
+    public String getSkills() {
+        return skills;
+    }
+
+    public void setSkills(String skills) {
+        this.skills = skills;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getNation() {
+        return nation;
+    }
+
+    public void setNation(String nation) {
+        this.nation = nation;
+    }
+
+    public String getGraduated() {
+        return graduated;
+    }
+
+    public void setGraduated(String graduated) {
+        this.graduated = graduated;
+    }
+    private String nation;
+    private String graduated;
+    
 
 
     public String getName() {

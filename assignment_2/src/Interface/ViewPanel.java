@@ -87,6 +87,14 @@ public class ViewPanel extends javax.swing.JPanel {
         personalLabel = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        sexLabel = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        nationLabel = new javax.swing.JLabel();
+        statusLabel = new javax.swing.JLabel();
+        skillsLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblResume = new javax.swing.JTable();
         btnViewDetail = new javax.swing.JButton();
@@ -423,9 +431,45 @@ public class ViewPanel extends javax.swing.JPanel {
         jLabel14.setForeground(new java.awt.Color(51, 204, 255));
         jLabel14.setText("Personal Summary:");
 
+        jLabel16.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel16.setText("Gander:");
+
+        sexLabel.setBackground(new java.awt.Color(204, 204, 204));
+        sexLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+
+        jLabel17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel17.setText("Nation:");
+
+        jLabel20.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel20.setText("Status:");
+
+        jLabel23.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel23.setText("Skills:");
+
+        nationLabel.setBackground(new java.awt.Color(204, 204, 204));
+        nationLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+
+        statusLabel.setBackground(new java.awt.Color(204, 204, 204));
+        statusLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+
+        skillsLabel.setBackground(new java.awt.Color(204, 204, 204));
+        skillsLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+
         jLayeredPane4.setLayer(personalLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(jLabel21, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(jLabel14, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabel16, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(sexLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabel17, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabel20, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabel23, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(nationLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(statusLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(skillsLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane4Layout = new javax.swing.GroupLayout(jLayeredPane4);
         jLayeredPane4.setLayout(jLayeredPane4Layout);
@@ -435,25 +479,47 @@ public class ViewPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel21)
                 .addGap(61, 61, 61)
-                .addComponent(jLabel14)
+                .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel23))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(personalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(skillsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sexLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(personalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(statusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         jLayeredPane4Layout.setVerticalGroup(
             jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane4Layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(personalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel14)
+                        .addComponent(jLabel21)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jLayeredPane4Layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(personalLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jLayeredPane4Layout.createSequentialGroup()
-                        .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel21))
-                        .addGap(0, 128, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(jLabel16)
+                    .addComponent(sexLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17)
+                    .addComponent(nationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel20)
+                    .addComponent(statusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel23)
+                    .addComponent(skillsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         tblResume.setModel(new javax.swing.table.DefaultTableModel(
@@ -513,7 +579,7 @@ public class ViewPanel extends javax.swing.JPanel {
                         .addComponent(btnViewDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnDelete)))
-                .addContainerGap(274, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -534,7 +600,7 @@ public class ViewPanel extends javax.swing.JPanel {
                 .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -560,6 +626,11 @@ public class ViewPanel extends javax.swing.JPanel {
             workexp1Label.setText(r.getWorkexp1());
             workexp2Label.setText(r.getWorkexp2());
             workexp3Label.setText(r.getWorkexp3());
+            sexLabel.setText(r.getSex());
+            skillsLabel.setText(r.getSkills());
+            nationLabel.setText(r.getNation());
+            statusLabel.setText(r.getGraduated());
+            
             
             ImageIcon imgThisImg = new ImageIcon(r.getImage());
             Image temp = imgThisImg.getImage();
@@ -599,6 +670,10 @@ public class ViewPanel extends javax.swing.JPanel {
             workexp1Label.setText("");
             workexp2Label.setText("");
             workexp3Label.setText("");
+            sexLabel.setText("");
+            skillsLabel.setText("");
+            nationLabel.setText("");
+            statusLabel.setText("");
             ImageIcon imgThisImg = new ImageIcon("src/2015.png");
             Label.setIcon(imgThisImg);
             Label.setText("src/2015.png");
@@ -628,11 +703,15 @@ public class ViewPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -646,8 +725,12 @@ public class ViewPanel extends javax.swing.JPanel {
     private javax.swing.JLayeredPane jLayeredPane4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel nationLabel;
     private javax.swing.JLabel personalLabel;
     private javax.swing.JLabel phoneLabel;
+    private javax.swing.JLabel sexLabel;
+    private javax.swing.JLabel skillsLabel;
+    private javax.swing.JLabel statusLabel;
     private javax.swing.JTable tblResume;
     private javax.swing.JLabel volexpLabel;
     private javax.swing.JLabel workexp1Label;
