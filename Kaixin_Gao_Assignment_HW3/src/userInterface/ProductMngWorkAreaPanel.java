@@ -6,6 +6,7 @@
 package userInterface;
 
 import Business.ProductList;
+import Business.OrderList;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -20,13 +21,15 @@ public class ProductMngWorkAreaPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private ProductList productList;
+    private OrderList orderList;
     
     
 
-    ProductMngWorkAreaPanel(JPanel userProcessContainer, ProductList productList) {
+    ProductMngWorkAreaPanel(JPanel userProcessContainer, ProductList productList, OrderList orderList) {
         initComponents(); 
         this.userProcessContainer = userProcessContainer;
         this.productList = productList;
+        this.orderList = orderList;
     }
 
     /**
@@ -40,7 +43,7 @@ public class ProductMngWorkAreaPanel extends javax.swing.JPanel {
 
         btnCreateAccount = new javax.swing.JButton();
         btnManageAccount = new javax.swing.JButton();
-        btnManageAccount1 = new javax.swing.JButton();
+        btnManageOrder = new javax.swing.JButton();
 
         btnCreateAccount.setText("Create Product");
         btnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
@@ -56,10 +59,10 @@ public class ProductMngWorkAreaPanel extends javax.swing.JPanel {
             }
         });
 
-        btnManageAccount1.setText("View Order");
-        btnManageAccount1.addActionListener(new java.awt.event.ActionListener() {
+        btnManageOrder.setText("View Order");
+        btnManageOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageAccount1ActionPerformed(evt);
+                btnManageOrderActionPerformed(evt);
             }
         });
 
@@ -69,12 +72,11 @@ public class ProductMngWorkAreaPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnManageAccount1, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnManageAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
-                        .addComponent(btnCreateAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(615, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnManageAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                    .addComponent(btnCreateAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnManageOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(692, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,7 +86,7 @@ public class ProductMngWorkAreaPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnManageAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnManageOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(313, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -106,14 +108,18 @@ public class ProductMngWorkAreaPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnCreateAccountActionPerformed
 
-    private void btnManageAccount1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageAccount1ActionPerformed
+    private void btnManageOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageOrderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnManageAccount1ActionPerformed
+        ManageOrderPanel panel = new ManageOrderPanel(userProcessContainer, orderList);
+        userProcessContainer.add("ManageOrderPanel", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageOrderActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateAccount;
     private javax.swing.JButton btnManageAccount;
-    private javax.swing.JButton btnManageAccount1;
+    private javax.swing.JButton btnManageOrder;
     // End of variables declaration//GEN-END:variables
 }

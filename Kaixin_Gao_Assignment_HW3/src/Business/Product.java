@@ -5,8 +5,6 @@
  */
 package Business;
 
-import java.util.Date;
-
 /**
  *
  * @author Max
@@ -14,15 +12,22 @@ import java.util.Date;
 public class Product {
     private String name;
     private String modelnumber;
-    private String vondername;
+    private String vonder;
     private String description;
     private String bestprice;
     private String ceilingprice;
     private String floorprice;
     private String benefits;
+    private String catalog;
+
+    public String getCatalog() {
+        return catalog;
+    }
+
+    public void setCatalog(String catalog) {
+        this.catalog = catalog;
+    }
     
-    //private Date createdOn;
-    //public Date getCreatedOn() { return createdOn;}
 
    @Override
     public String toString(){return name;}
@@ -43,12 +48,12 @@ public class Product {
         this.modelnumber = modelnumber;
     }
 
-    public String getVondername() {
-        return vondername;
+    public String getVonder() {
+        return vonder;
     }
 
-    public void setVondername(String vondername) {
-        this.vondername = vondername;
+    public void setVonder(String vonder) {
+        this.vonder = vonder;
     }
 
     public String getDescription() {

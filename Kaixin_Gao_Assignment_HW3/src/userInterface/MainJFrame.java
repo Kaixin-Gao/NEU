@@ -5,6 +5,7 @@
  */
 package userInterface;
 import Business.ProductList;
+import Business.OrderList;
 import java.awt.CardLayout;
 
 
@@ -14,6 +15,7 @@ import java.awt.CardLayout;
  */
 public class MainJFrame extends javax.swing.JFrame {
     private ProductList productList;
+    private OrderList orderList;
     
 
     /**
@@ -22,6 +24,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         this.productList = new ProductList(); 
+        this.orderList = new OrderList();
     }
 
     /**
@@ -45,7 +48,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnProductMng.setBackground(new java.awt.Color(102, 204, 255));
         btnProductMng.setFont(new java.awt.Font("Bauhaus 93", 0, 18)); // NOI18N
-        btnProductMng.setText("Product Manger");
+        btnProductMng.setText("I'm a Vonder");
         btnProductMng.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProductMngActionPerformed(evt);
@@ -54,7 +57,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnCustomerView.setBackground(new java.awt.Color(102, 204, 255));
         btnCustomerView.setFont(new java.awt.Font("Bauhaus 93", 0, 18)); // NOI18N
-        btnCustomerView.setText("Customer View");
+        btnCustomerView.setText("I'm a Custumor");
         btnCustomerView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCustomerViewActionPerformed(evt);
@@ -103,7 +106,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnProductMngActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductMngActionPerformed
         // TODO add your handling code here:
-        ProductMngWorkAreaPanel panel = new ProductMngWorkAreaPanel(userProcessContainer, productList);
+        ProductMngWorkAreaPanel panel = new ProductMngWorkAreaPanel(userProcessContainer,productList, orderList);
         userProcessContainer.add("CreateProductPanel", panel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -111,6 +114,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnCustomerViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerViewActionPerformed
         // TODO add your handling code here:
+        //UserPanel panel = new UserPanel(userProcessContainer, productList);
+        UserPanel panel = new UserPanel(userProcessContainer, productList, orderList);
+        userProcessContainer.add("UserSearchPanel", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
         
     }//GEN-LAST:event_btnCustomerViewActionPerformed
 

@@ -18,14 +18,12 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="btnManageAccount1" pref="275" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="btnManageAccount" pref="275" max="32767" attributes="0"/>
-                      <Component id="btnCreateAccount" max="32767" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btnManageAccount" alignment="0" pref="198" max="32767" attributes="0"/>
+                  <Component id="btnCreateAccount" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnManageOrder" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="615" max="32767" attributes="0"/>
+              <EmptySpace pref="692" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -37,7 +35,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnManageAccount" min="-2" pref="87" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnManageAccount1" min="-2" pref="87" max="-2" attributes="0"/>
+              <Component id="btnManageOrder" min="-2" pref="87" max="-2" attributes="0"/>
               <EmptySpace pref="313" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -60,12 +58,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageAccountActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnManageAccount1">
+    <Component class="javax.swing.JButton" name="btnManageOrder">
       <Properties>
         <Property name="text" type="java.lang.String" value="View Order"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageAccount1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageOrderActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

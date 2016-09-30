@@ -34,14 +34,14 @@ public class ManageProductPanel extends javax.swing.JPanel {
         
     }
     
-    private void populateTable(){
+    public void populateTable(){
         DefaultTableModel dtm = (DefaultTableModel) tblProducts.getModel();
         dtm.setRowCount(0);
         for(Product product: productList.getProductList()){
             Object[] row = new Object [4];
             row[0] = product;
             row[1] = product.getModelnumber();
-            row[2] = product.getVondername();
+            row[2] = product.getVonder();
             row[3] = product.getBestprice();
             
             dtm.addRow(row);
