@@ -220,7 +220,7 @@ public class UserOrderPanel_1_2 extends javax.swing.JPanel {
                     if((!"".equals(address) && address.length() != 0) && (address.replaceAll("#*[a-z]*[A-Z]*[0-9]* *-*", "").length()==0)){
                         if((!"".equals(payment) && payment.length() == 16) && (payment.replaceAll("[0-9]", "").length()==0)){
                             if((!"".equals(item) && item.length() != 0) && (item.replaceAll("[a-z]*[A-Z]*#*[0-9]*-*_*/* *", "").length()==0)){
-                                if((!"".equals(qty) && qty.length() != 0) && (qty.replaceAll("[0-9]*", "").length()==0)){
+                                if((!"".equals(qty) && qty.length() != 0) && (qty.length() <= 2) && (qty.replaceAll("[0-9]*", "").length()==0)){
                                     Order order = orderList.addOrder();
                                     order.setUsername(username);
                                     order.setEmail(email);

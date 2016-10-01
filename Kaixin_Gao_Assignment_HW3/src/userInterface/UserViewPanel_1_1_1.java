@@ -5,10 +5,11 @@
  */
 package userInterface;
 
-import Business.ProductList;
-import javax.swing.JPanel;
-import java.awt.CardLayout;
+import Business.Product;
 import Business.OrderList;
+import Business.Order;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
 
 /**
  *
@@ -20,21 +21,44 @@ public class UserViewPanel_1_1_1 extends javax.swing.JPanel {
      * Creates new form ManageProductPanel
      */
    private JPanel userProcessContainer;
-    private ProductList productList;
-    private OrderList orderList;
-    
+    private Product product;
 
     
-    UserViewPanel_1_1_1(JPanel userProcessContainer, ProductList productList, OrderList orderList) {
+   /* UserViewPanel_1_1_1(JPanel userProcessContainer, ProductList productList, OrderList orderList) {
         initComponents();
        
          this.userProcessContainer = userProcessContainer;
         this.productList = productList;
         this.orderList = orderList;
+        populateProductDetails();
         
      
         
+    }*/
+
+    UserViewPanel_1_1_1(JPanel userProcessContainer, Product product) {
+       initComponents();
+       
+         this.userProcessContainer = userProcessContainer;
+        this.product = product;
+        populateProductDetails();
     }
+    private void populateProductDetails(){
+        txtModelnumber.setText(product.getModelnumber());
+        txtVonder.setText(product.getVonder());
+        txtBestprice.setText(product.getBestprice());
+        txtDescription.setText(product.getDescription());
+        txtCatalog.setText(product.getCatalog());
+        txtBenefits.setText(product.getBenefits());
+        txtName.setText(product.getName());
+        
+        
+        
+    
+    }
+    
+
+    
     
     
 
@@ -64,7 +88,6 @@ public class UserViewPanel_1_1_1 extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtBenefits = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
 
         btnBack.setText("< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -144,13 +167,6 @@ public class UserViewPanel_1_1_1 extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         jLabel1.setText("Is this the product you looking for?");
 
-        jButton2.setText("Make a order");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -172,8 +188,7 @@ public class UserViewPanel_1_1_1 extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane1)
-                                    .addComponent(txtBestprice)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(txtBestprice)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -228,9 +243,7 @@ public class UserViewPanel_1_1_1 extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(180, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -265,18 +278,9 @@ public class UserViewPanel_1_1_1 extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCatalogActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        UserOrderPanel_1_2 panel = new UserOrderPanel_1_2(userProcessContainer, orderList);
-        userProcessContainer.add("UserOrderPanel", panel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

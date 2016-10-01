@@ -174,21 +174,33 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtModelnumber">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="2016-8"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtModelnumberActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="AW"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNameActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtVonder">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="DELL"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtVonderActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDescription">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="I7"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDescriptionActionPerformed"/>
       </Events>
@@ -210,6 +222,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtFloorprice">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="800"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFloorpriceActionPerformed"/>
       </Events>
@@ -243,11 +258,17 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCeilingprice">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1200"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCeilingpriceActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtBestprice">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1000"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBestpriceActionPerformed"/>
       </Events>
@@ -263,11 +284,15 @@
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
+            <Property name="text" type="java.lang.String" value="FAST"/>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JTextField" name="txtCatalog">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Computer"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCatalogActionPerformed"/>
       </Events>

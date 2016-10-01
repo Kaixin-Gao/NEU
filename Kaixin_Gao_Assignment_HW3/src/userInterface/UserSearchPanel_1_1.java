@@ -8,8 +8,11 @@ package userInterface;
 import Business.Product;
 import Business.ProductList;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import java.util.Collections;
 
 /**
  *
@@ -33,15 +36,17 @@ public class UserSearchPanel_1_1 extends javax.swing.JPanel {
         
     }
     
-    private void populateTable(){
+    public void populateTable(){
         DefaultTableModel dtm = (DefaultTableModel) tblProducts.getModel();
         dtm.setRowCount(0);
         for(Product product: productList.getProductList()){
-            Object[] row = new Object [4];
+            Object[] row = new Object [5];
             row[0] = product;
             row[1] = product.getModelnumber();
             row[2] = product.getVonder();
             row[3] = product.getBestprice();
+            row[4] = product.getDescription();
+            
             
             dtm.addRow(row);
             
@@ -60,15 +65,11 @@ public class UserSearchPanel_1_1 extends javax.swing.JPanel {
 
         btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        btnSearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProducts = new javax.swing.JTable();
+        btnSearch = new javax.swing.JButton();
+        btnView = new javax.swing.JButton();
+        txtSearch = new javax.swing.JTextField();
 
         btnBack.setText("< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -80,34 +81,16 @@ public class UserSearchPanel_1_1 extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         jLabel1.setText("What kind of item you looking for ?");
 
-        jCheckBox1.setText("Name");
-
-        jCheckBox2.setText("Vonder");
-
-        jCheckBox3.setText("Key Words");
-
-        jCheckBox4.setText("Lowest Price");
-
-        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
-        jLabel2.setText("Search By:");
-
-        btnSearch.setText("Search");
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
-
         tblProducts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Name", "Vonder Name", "Key Words", "Best Price"
+                "Name", "Model Name", "Vonder Name", "Best Price", "Key Words"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -120,7 +103,22 @@ public class UserSearchPanel_1_1 extends javax.swing.JPanel {
             tblProducts.getColumnModel().getColumn(1).setResizable(false);
             tblProducts.getColumnModel().getColumn(2).setResizable(false);
             tblProducts.getColumnModel().getColumn(3).setResizable(false);
+            tblProducts.getColumnModel().getColumn(4).setResizable(false);
         }
+
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        btnView.setText("View Detail");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -134,19 +132,14 @@ public class UserSearchPanel_1_1 extends javax.swing.JPanel {
                         .addGap(31, 31, 31)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(193, 193, 193)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox4)
-                            .addComponent(jCheckBox3)
-                            .addComponent(jCheckBox2)
-                            .addComponent(jCheckBox1)
-                            .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(97, 97, 97)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtSearch)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -158,25 +151,17 @@ public class UserSearchPanel_1_1 extends javax.swing.JPanel {
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(41, Short.MAX_VALUE)
+                        .addContainerGap(50, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox4)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtSearch)
+                    .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80))
+                .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(199, 199, 199))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -187,22 +172,43 @@ public class UserSearchPanel_1_1 extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblProducts.getSelectedRow();
+        if(selectedRow>=0){
+            
+            Product product = (Product)tblProducts.getValueAt(selectedRow, 0);
+            UserViewPanel_1_1_1 panel = new UserViewPanel_1_1_1(userProcessContainer, product);
+             userProcessContainer.add("UserViewPanel_1_1_1", panel);
+             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+             layout.next(userProcessContainer);
+            
+            }
+        else{JOptionPane.showMessageDialog(null, "please select a row first", "Warning", JOptionPane.WARNING_MESSAGE);}
+    }//GEN-LAST:event_btnViewActionPerformed
+
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
+        Product result = productList.searchProduct(txtSearch.getText());
+        if(result == null){JOptionPane.showMessageDialog(null, "Can not find such product", "Information", JOptionPane.INFORMATION_MESSAGE);}
+        else{
+            UserViewPanel_1_1_1 panel = new UserViewPanel_1_1_1(userProcessContainer, result);
+             userProcessContainer.add("UserViewPanel_1_1_1", panel);
+             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+             layout.next(userProcessContainer);
+        
+        
+        
     }//GEN-LAST:event_btnSearchActionPerformed
-
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
+    private javax.swing.JButton btnView;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tblProducts;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

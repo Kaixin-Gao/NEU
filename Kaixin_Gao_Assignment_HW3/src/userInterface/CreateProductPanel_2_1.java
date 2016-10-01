@@ -81,24 +81,28 @@ public class CreateProductPanel_2_1 extends javax.swing.JPanel {
         jLabel5.setText("Description");
         jLabel5.setFocusable(false);
 
+        txtModelnumber.setText("2016-8");
         txtModelnumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtModelnumberActionPerformed(evt);
             }
         });
 
+        txtName.setText("AW");
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
             }
         });
 
+        txtVonder.setText("DELL");
         txtVonder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtVonderActionPerformed(evt);
             }
         });
 
+        txtDescription.setText("I7");
         txtDescription.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDescriptionActionPerformed(evt);
@@ -119,6 +123,7 @@ public class CreateProductPanel_2_1 extends javax.swing.JPanel {
             }
         });
 
+        txtFloorprice.setText("800");
         txtFloorprice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFloorpriceActionPerformed(evt);
@@ -141,12 +146,14 @@ public class CreateProductPanel_2_1 extends javax.swing.JPanel {
         jLabel9.setText("Features & Benefits");
         jLabel9.setFocusable(false);
 
+        txtCeilingprice.setText("1200");
         txtCeilingprice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCeilingpriceActionPerformed(evt);
             }
         });
 
+        txtBestprice.setText("1000");
         txtBestprice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBestpriceActionPerformed(evt);
@@ -155,8 +162,10 @@ public class CreateProductPanel_2_1 extends javax.swing.JPanel {
 
         txtBenefits.setColumns(20);
         txtBenefits.setRows(5);
+        txtBenefits.setText("FAST");
         jScrollPane1.setViewportView(txtBenefits);
 
+        txtCatalog.setText("Computer");
         txtCatalog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCatalogActionPerformed(evt);

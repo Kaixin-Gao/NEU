@@ -6,6 +6,8 @@
 package Business;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  *
@@ -14,21 +16,35 @@ import java.util.ArrayList;
 public class ProductList {
     private ArrayList<Product> productList;
 
-    public ProductList() {
-       // ArrayList<Product> productList;
-        this.productList = new ArrayList<Product>();
-        
-    }
     
-    
-
     public ArrayList<Product> getProductList() {
+      //  Collections.sort(productList);
         return productList;
     }
+    
+        /*public ArrayList<Product> getList() {
+            ArrayList<Product> results = new ArrayList<Product>();
+            for (Product p : productList) {
+                
+                    results.add(p);
+                
+            }
+            return results;
+        }*/
 
     public void setProductList(ArrayList<Product> productList) {
         this.productList = productList;
     }
+    
+    
+    public ProductList() {
+       // ArrayList<Product> productList;
+        //this.productList = new ArrayList<Product>();
+        productList = new ArrayList<Product>();
+        
+    }
+
+    
     
     public Product addProduct(){
         Product product = new Product();
@@ -40,11 +56,26 @@ public class ProductList {
        productList.remove(product);
     }
     
-    public Product searchProduct(String name){
+    public Product searchProduct(String str){
         for(Product product:productList){
-            if(product.getName().equals(name)){
+            if(product.getName().equals(str) || product.getVonder().equals(str) || product.getBestprice().equals(str) || product.getDescription().contains(str)){
             return product;
             }else {return null;}
         }return null;
     }
+    
+    
+   /* public ArrayList<Product> search(String str) {
+        Collections.sort(productList);
+        ArrayList<Product> results = new ArrayList<Product>();
+        //product name, vendor, description
+        for (Product p : productList) {
+            if (p.getName().contains(str) || p.getDescription().contains(str) || p.getVonder().contains(str)) {
+                results.add(p);
+            }
+        }
+        Collections.sort(results);
+        return results;
+    }*/
+    
 }
