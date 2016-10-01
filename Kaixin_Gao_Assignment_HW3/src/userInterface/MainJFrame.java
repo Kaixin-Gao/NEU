@@ -41,6 +41,7 @@ public class MainJFrame extends javax.swing.JFrame {
         btnProductMng = new javax.swing.JButton();
         btnCustomerView = new javax.swing.JButton();
         userProcessContainer = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,6 +89,12 @@ public class MainJFrame extends javax.swing.JFrame {
         splitPane1.setTopComponent(topPanel);
 
         userProcessContainer.setLayout(new java.awt.CardLayout());
+
+        jLabel1.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
+        jLabel1.setText("                                        welcome");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        userProcessContainer.add(jLabel1, "card2");
+
         splitPane1.setRightComponent(userProcessContainer);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -106,7 +113,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnProductMngActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductMngActionPerformed
         // TODO add your handling code here:
-        ProductMngWorkAreaPanel panel = new ProductMngWorkAreaPanel(userProcessContainer,productList, orderList);
+        ProductMngWorkAreaPanel_2 panel = new ProductMngWorkAreaPanel_2(userProcessContainer,productList, orderList);
         userProcessContainer.add("CreateProductPanel", panel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -114,8 +121,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnCustomerViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerViewActionPerformed
         // TODO add your handling code here:
-        //UserPanel panel = new UserPanel(userProcessContainer, productList);
-        UserPanel panel = new UserPanel(userProcessContainer, productList, orderList);
+        //UserPanel panel = new UserPanel_1(userProcessContainer, productList);
+        UserPanel_1 panel = new UserPanel_1(userProcessContainer, productList, orderList);
         userProcessContainer.add("UserSearchPanel", panel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -160,6 +167,7 @@ public class MainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCustomerView;
     private javax.swing.JButton btnProductMng;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane splitPane1;
     private javax.swing.JPanel topPanel;
     private javax.swing.JPanel userProcessContainer;

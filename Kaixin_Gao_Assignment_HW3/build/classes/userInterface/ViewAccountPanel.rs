@@ -1,7 +1,0 @@
-userInterface.ViewProductPanel$6
-userInterface.ViewProductPanel
-userInterface.ViewProductPanel$2
-userInterface.ViewProductPanel$3
-userInterface.ViewProductPanel$4
-userInterface.ViewProductPanel$5
-userInterface.ViewProductPanel$1
