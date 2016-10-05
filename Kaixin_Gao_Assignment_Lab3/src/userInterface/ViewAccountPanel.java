@@ -7,6 +7,7 @@ package userInterface;
 
 import Business.Account;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -177,13 +178,20 @@ public class ViewAccountPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
        
-       userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+       //userProcessContainer.remove(this);
+       // CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+       // layout.previous(userProcessContainer);
        /* ManageAccountPanel panel = new ManageAccountPanel(userProcessContainer, accountDirectory);
         userProcessContainer.add("ManageAccountPanel", panel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);*/
+       userProcessContainer.remove(this);
+       Component[] componentArray = userProcessContainer.getComponents();
+       Component component = componentArray[componentArray.length - 1];
+       ManageAccountPanel manageAccountJPanel = (ManageAccountPanel) component;
+       manageAccountJPanel.populateTable();
+       CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+       layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void txtAccountNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAccountNumberActionPerformed

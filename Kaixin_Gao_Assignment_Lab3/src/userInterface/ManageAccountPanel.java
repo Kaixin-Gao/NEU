@@ -34,7 +34,7 @@ public class ManageAccountPanel extends javax.swing.JPanel {
         
     }
     
-    private void populateTable(){
+    public void populateTable(){
         DefaultTableModel dtm = (DefaultTableModel) tblAccounts.getModel();
         dtm.setRowCount(0);
         for(Account account: accountDirectory.getAccountList()){
