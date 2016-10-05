@@ -193,7 +193,7 @@ public class InputPanel extends javax.swing.JPanel {
 
         emailTextfield.setText("gao.k@husky.neu.edu");
 
-        phoneTextfield.setText("123-456-7890");
+        phoneTextfield.setText("1234567890");
         phoneTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 phoneTextfieldActionPerformed(evt);
@@ -788,10 +788,9 @@ public class InputPanel extends javax.swing.JPanel {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLayeredPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLayeredPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
-                                .addComponent(jLayeredPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addComponent(jLayeredPane1, javax.swing.GroupLayout.Alignment.LEADING)))
+                            .addComponent(jLayeredPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
+                            .addComponent(jLayeredPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 794, Short.MAX_VALUE)
+                            .addComponent(jLayeredPane1, javax.swing.GroupLayout.Alignment.LEADING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jLabel7)
                 .addGap(36, 36, 36))
@@ -838,9 +837,9 @@ public class InputPanel extends javax.swing.JPanel {
         
         String image = imageLabel.getText();
         
-      if((!"    ".equals(name) && name.length() != 4) && (name.replaceAll("[\u4e00-\u9fa5]*[a-z]*[A-Z]*\\d*-*_*\\s*", "").length()==0)){
-          if((!"".equals(email) && email.length() != 0) && (email.replaceAll("[\u4e00-\u9fa5]*[@]*[.]*[a-z]*[A-Z]*\\d*-*_*\\s*", "").length()==0)){
-              if((!"".equals(phone) && phone.length() != 0) && (phone.replaceAll("[\u4e00-\u9fa5]*[a-z]*[A-Z]*\\d*-*_*\\s*", "").length()==0)){
+      if((!"    ".equals(name) && name.length() != 4) && (name.replaceAll("[\u4e00-\u9fa5]*[a-z]*[A-Z]* *", "").length()==0)){
+          if((!"".equals(email) && email.length() != 0) && (email.replaceAll("[@]*[.]*[a-z]*[A-Z]*_*", "").length()==0)){
+              if((!"".equals(phone) && phone.length() == 10) && (phone.replaceAll("[0-9]*", "").length()==0)){
                   
                                     Resume v = rl.addRe();
                                     v.setName(name);
