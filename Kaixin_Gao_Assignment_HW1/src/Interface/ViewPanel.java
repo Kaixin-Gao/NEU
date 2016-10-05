@@ -70,7 +70,19 @@ public class ViewPanel extends javax.swing.JPanel {
             String resumeWorkexp3=resume.getWorkexp3();
             workexp3Label.setText(resumeWorkexp3);
             
-            String path = resume.getImage();
+            
+            String resumeImage=resume.getImage();
+            ImageIcon imageIcon = new ImageIcon(resumeImage); 
+            Image image = imageIcon.getImage(); 
+            Image newimg = image.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
+            imageIcon = new ImageIcon(newimg); 
+
+            ImageIcon imgThisImg = new ImageIcon(newimg);
+            Label.setIcon(imgThisImg);
+            Label.setText(resumeImage);
+            
+            
+            /*String path = resume.getImage();
             if (path != null){
                 
             ImageIcon imageIcon = new ImageIcon(path); 
@@ -82,7 +94,7 @@ public class ViewPanel extends javax.swing.JPanel {
             Label.setIcon(imgThisImg);}
             else {
             ImageIcon imgThisImg = new ImageIcon("src/2015.png");
-            Label.setIcon(imgThisImg);}
+            Label.setIcon(imgThisImg);}*/
             
             
             

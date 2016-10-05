@@ -5,6 +5,7 @@
  */
 package Interface;
 import Resume_maker.Resume;
+import static com.sun.corba.se.impl.orbutil.CorbaResourceUtil.getText;
 import java.awt.Image;
 import java.io.File;
 import javax.swing.ImageIcon;
@@ -35,6 +36,7 @@ public class InputPanel extends javax.swing.JPanel {
            
             ImageIcon imgThisImg = new ImageIcon("src/2015.png");
             imageLabel.setIcon(imgThisImg);
+            imageLabel.setText("src/2015.png");
             
             
             
@@ -536,6 +538,8 @@ public class InputPanel extends javax.swing.JPanel {
         
         resume.setWorkexp3(when3Textfield.getText()+" , "+company3Textfield.getText()+" , "+jobdescription3Textfield.getText());
         
+        resume.setImage(imageLabel.getText());
+        
      
         
         JOptionPane.showMessageDialog(null,"Create Resume Successfully!\nPress view to check out.");
@@ -588,17 +592,18 @@ public class InputPanel extends javax.swing.JPanel {
 
     private void UploadimageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UploadimageButtonActionPerformed
         // TODO add your handling code here:
+        imageLabel.setText("src/2015.png");
          JFileChooser fileChooser = new JFileChooser();
          fileChooser.setAcceptAllFileFilterUsed(false);
         FileNameExtensionFilter filter = new FileNameExtensionFilter("JPEG Image", "jpg");
         fileChooser.addChoosableFileFilter(filter);
         int returnValue = fileChooser.showOpenDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
-          File selectedFile = fileChooser.getSelectedFile();
-          resume.setImage(selectedFile.getAbsolutePath());
-        }
-        
-               String path = resume.getImage();  
+            
+         File selectedFile = fileChooser.getSelectedFile();
+         imageLabel.setText(selectedFile.getAbsolutePath());
+            //resume.setImage(selectedFile.getAbsolutePath());
+            String path = imageLabel.getText();  
             ImageIcon imageIcon = new ImageIcon(path); 
             Image image = imageIcon.getImage(); 
             Image newimg = image.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
@@ -606,6 +611,8 @@ public class InputPanel extends javax.swing.JPanel {
 
             ImageIcon imgThisImg = new ImageIcon(newimg);
             imageLabel.setIcon(imgThisImg);
+            }
+        
     }//GEN-LAST:event_UploadimageButtonActionPerformed
 
     
