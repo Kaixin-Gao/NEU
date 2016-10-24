@@ -6,25 +6,27 @@
 package userinterface;
 
 import Business.Business;
+import Business.ConfigureBusiness;
 import Business.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Max
  */
 public class MainJFrame extends javax.swing.JFrame {
-    
 
     /**
      * Creates new form MainJFrame
      */
     private Business business;
-            
+
     public MainJFrame() {
         initComponents();
-        business = Business.getInsance();
+        business = ConfigureBusiness.initBusiness();
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -108,17 +110,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         SplitPane1.setLeftComponent(loginPanel);
 
-        javax.swing.GroupLayout userProcessContainerLayout = new javax.swing.GroupLayout(userProcessContainer);
-        userProcessContainer.setLayout(userProcessContainerLayout);
-        userProcessContainerLayout.setHorizontalGroup(
-            userProcessContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 588, Short.MAX_VALUE)
-        );
-        userProcessContainerLayout.setVerticalGroup(
-            userProcessContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 553, Short.MAX_VALUE)
-        );
-
+        userProcessContainer.setLayout(new java.awt.CardLayout());
         SplitPane1.setRightComponent(userProcessContainer);
 
         getContentPane().add(SplitPane1, java.awt.BorderLayout.CENTER);
@@ -131,35 +123,34 @@ public class MainJFrame extends javax.swing.JFrame {
         String userName = txtusername.getText().trim();
         String password = txtpassword.getText().trim();
         boolean flag = false;
-        
-        for(UserAccount ua: business.getUserAccountDirectory().getUserAccountList()){
-            if(ua.getUserName().equals(userName) && ua.getPassword().equals(password)){
-                if(ua.getRole().equals(UserAccount.ADMIN_ROLE)){
+
+        for (UserAccount ua : business.getUserAccountDirectory().getUserAccountList()) {
+            if (ua.getUserName().equals(userName) && ua.getPassword().equals(password)) {
+                if (ua.getRole().equals(UserAccount.ADMIN_ROLE)) {
                     userProcessContainer.removeAll();
-                    AdminWorkAreaJPanel awajp = new AdminWorkAreaJPanel();
-                    userProcessContainer.add("awajp",awajp);
-                    CardLayout layout  = (CardLayout) userProcessContainer.getLayout();
+                    AdminWorkAreaJPanel awajp = new AdminWorkAreaJPanel( userProcessContainer,  business);
+                    userProcessContainer.add("awajp", awajp);
+                    CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                     layout.next(userProcessContainer);
-                    
-                    
+flag = true;
+                    break;
+                } else if (ua.getRole().equals(UserAccount.EMPLOYEE_ROLE)) {
+                    userProcessContainer.removeAll();
+                    EmployeeWorkAreaJPanel ewajp = new EmployeeWorkAreaJPanel(userProcessContainer, ua);
+                    userProcessContainer.add("ewajp", ewajp);
+                    CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                    layout.next(userProcessContainer);
+                    flag = true;
                     break;
                 }
-                else if(ua.getRole().equals(UserAccount.EMPLOYEE_ROLE)){
-                    userProcessContainer.removeAll();
-                    EmployeeWorkAreaJPanel ewajp = new EmployeeWorkAreaJPanel();
-                    userProcessContainer.add("ewajp",ewajp);
-                    CardLayout layout  = (CardLayout) userProcessContainer.getLayout();
-                    layout.next(userProcessContainer);
-                    break;
-                }
-                flag = true;
+                
+            }
         }
-        }
-        if(flag = false){
-            JOptionPane.showMessageDialog(this,"invalid user name/password","error", JOptionPane.ERROR_MESSAGE);
+        if (flag = false) {
+            JOptionPane.showMessageDialog(this, "invalid user name/password", "error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         txtusername.setEditable(false);
         txtpassword.setEditable(false);
         jButton1.setEnabled(false);
@@ -170,10 +161,17 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtusername.setText("");
         txtpassword.setText("");
+
         txtusername.setEditable(true);
         txtpassword.setEditable(true);
         jButton1.setEnabled(true);
         jButton2.setEnabled(false);
+        userProcessContainer.removeAll();
+        JPanel blankJPanel = new JPanel();
+        userProcessContainer.add("blankJPanel", blankJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

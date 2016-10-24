@@ -5,6 +5,13 @@
  */
 package userinterface;
 
+import Business.Business;
+import Business.Employee;
+import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Max
@@ -13,9 +20,25 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageEmployeesJPanel
-     */
-    public ManageEmployeesJPanel() {
+     */private JPanel userProcessContainer;
+    private Business business;
+    public ManageEmployeesJPanel(JPanel userProcessContainer, Business business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.business = business;
+        refreshtable();
+    }
+    
+    public void refreshtable(){
+        DefaultTableModel dtm = (DefaultTableModel) tblemployee.getModel();
+        dtm.setRowCount(0);
+        for (Employee e : business.getEmployDirectory().getEmployeeList()){
+            Object row[] = new Object[3];
+            row[0] = e;
+            row[1] = e.getLastName();
+            row[2] = e.getOrganization();
+            dtm.addRow(row);
+        }
     }
 
     /**
@@ -60,6 +83,11 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
         }
 
         jButton1.setText("<< Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         btnaddemploy.setText("Add Employee");
         btnaddemploy.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +131,22 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
 
     private void btnaddemployActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddemployActionPerformed
         // TODO add your handling code here:
+        AddEmployeeJPanel aejp = new AddEmployeeJPanel(userProcessContainer,  business);
+                    userProcessContainer.add("aejp", aejp);
+                    CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                    layout.next(userProcessContainer);
     }//GEN-LAST:event_btnaddemployActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray [componentArray.length -1];
+        ManageEmployeesJPanel mejp = (ManageEmployeesJPanel) component;
+        mejp.refreshtable();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

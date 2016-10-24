@@ -5,17 +5,26 @@
  */
 package userinterface;
 
+import Business.Business;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Max
  */
 public class AdminWorkAreaJPanel extends javax.swing.JPanel {
+    private JPanel userProcessContainer;
+    private Business business;
+    
 
     /**
      * Creates new form AdminWorkAreaJPanel
      */
-    public AdminWorkAreaJPanel() {
+    public AdminWorkAreaJPanel(JPanel userProcessContainer, Business business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.business = business;
     }
 
     /**
@@ -29,10 +38,24 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
         btnemployee = new javax.swing.JButton();
         btnuser = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         btnemployee.setText("Manage Employee");
+        btnemployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnemployeeActionPerformed(evt);
+            }
+        });
 
         btnuser.setText("Manage User Accounts");
+        btnuser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnuserActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
+        jLabel1.setText("Admin Work Area");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -40,25 +63,45 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(69, 69, 69)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnuser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnemployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnuser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnemployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(704, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel1)
+                .addGap(45, 45, 45)
                 .addComponent(btnemployee)
-                .addGap(69, 69, 69)
+                .addGap(34, 34, 34)
                 .addComponent(btnuser)
                 .addContainerGap(378, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnemployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnemployeeActionPerformed
+        
+                    ManageEmployeesJPanel mejp = new ManageEmployeesJPanel( userProcessContainer,  business);
+                    userProcessContainer.add("mejp", mejp);
+                    CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                    layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnemployeeActionPerformed
+
+    private void btnuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnuserActionPerformed
+        ManageUserAccountsJPanel muajp = new ManageUserAccountsJPanel( userProcessContainer,  business);
+                    userProcessContainer.add("muajp", muajp);
+                    CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                    layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnuserActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnemployee;
     private javax.swing.JButton btnuser;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

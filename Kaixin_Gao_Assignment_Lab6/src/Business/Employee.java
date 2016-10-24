@@ -34,5 +34,9 @@ public class Employee extends Person {
     public void setOrganization(String organization) {
         this.organization = organization;
     }
+    @Override
+    public String toString(){
+        return this.getFirstName();
+    }
 
 }

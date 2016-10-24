@@ -5,6 +5,10 @@
  */
 package userinterface;
 
+import Business.Employee;
+import Business.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Max
@@ -14,8 +18,17 @@ public class EmployeeWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form EmpolyeeWorkAreaJPanel
      */
-    public EmployeeWorkAreaJPanel() {
+    private JPanel userProcessContainer;
+    private UserAccount userAccount;
+    public EmployeeWorkAreaJPanel(JPanel userProcessContainer,UserAccount ua) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = ua;
+        Employee e =(Employee) ua.getPerson();
+        jTextField1.setText(e.getFirstName());
+        jTextField2.setText(e.getLastName());
+        jTextField3.setText(e.getOrganization());
+        
     }
 
     /**

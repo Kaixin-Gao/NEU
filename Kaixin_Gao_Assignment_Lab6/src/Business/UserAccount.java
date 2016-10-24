@@ -74,6 +74,12 @@ public class UserAccount {
         this.person = person;
     }
     
-    
+    @Override
+    public String toString(){
+        return person.getFirstName() +" "+person.getLastName();
+    }
+            
+            
+            
     
 }

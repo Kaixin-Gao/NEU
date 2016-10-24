@@ -5,6 +5,15 @@
  */
 package userinterface;
 
+import Business.Business;
+import Business.Employee;
+import Business.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Max
@@ -13,9 +22,24 @@ public class ManageUserAccountsJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageUserAccountsJPanel
-     */
-    public ManageUserAccountsJPanel() {
+     */private JPanel userProcessContainer;
+    private Business business;
+    public ManageUserAccountsJPanel(JPanel userProcessContainer, Business business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.business = business;
+        refreshtable();
+    }
+    public void refreshtable(){
+     DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+        dtm.setRowCount(0);
+        for (UserAccount ua : business.getUserAccountDirectory().getUserAccountList()){
+            Object row[] = new Object[3];
+            row[0] = ua;
+            row[1] = ua.getUserName();
+            row[2] = ua.getRole();
+            dtm.addRow(row);
+        }
     }
 
     /**
@@ -65,6 +89,11 @@ public class ManageUserAccountsJPanel extends javax.swing.JPanel {
         }
 
         jButton2.setText("<< Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         btnremove.setText("Remove");
         btnremove.addActionListener(new java.awt.event.ActionListener() {
@@ -115,11 +144,37 @@ public class ManageUserAccountsJPanel extends javax.swing.JPanel {
 
     private void btnremoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnremoveActionPerformed
         // TODO add your handling code here:
+        int selected=jTable1.getSelectedRow();
+        if(selected >0){
+            UserAccount ua = (UserAccount) jTable1.getValueAt(selected, 0);
+            if(ua.getRole().equals(UserAccount.ADMIN_ROLE)){
+                JOptionPane.showMessageDialog(this, "Admin account can not be removed","ERROR",JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            business.getUserAccountDirectory().deleteUserAccount(ua);
+            JOptionPane.showMessageDialog(this, "delected","info",JOptionPane.ERROR_MESSAGE);
+            return;
+        }else{JOptionPane.showMessageDialog(this,"please select a row","ERROR",JOptionPane.ERROR_MESSAGE );}
     }//GEN-LAST:event_btnremoveActionPerformed
 
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
         // TODO add your handling code here:
+        AddUserAccountJPanel auajp = new AddUserAccountJPanel( userProcessContainer,  business);
+                    userProcessContainer.add("auajp", auajp);
+                    CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                    layout.next(userProcessContainer);
     }//GEN-LAST:event_btnaddActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+         userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray [componentArray.length -1];
+        ManageEmployeesJPanel mejp = (ManageEmployeesJPanel) component;
+        mejp.refreshtable();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

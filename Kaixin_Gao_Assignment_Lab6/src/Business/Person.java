@@ -44,6 +44,9 @@ public class Person {
     public void setLastName(String LastName) {
         this.LastName = LastName;
     }
-    
+    @Override
+    public String toString(){
+        return this.firstName+" "+this.LastName;
+    }
     
 }

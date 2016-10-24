@@ -5,6 +5,14 @@
  */
 package userinterface;
 
+import Business.Business;
+import Business.Person;
+import Business.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Max
@@ -13,11 +21,29 @@ public class AddUserAccountJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form AddUserAccountJPanel
-     */
-    public AddUserAccountJPanel() {
+     */private JPanel userProcessContainer;
+    private Business business;
+    public AddUserAccountJPanel(JPanel userProcessContainer, Business business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.business = business;
+        populateperson();
+        populaterole();
+        
     }
-
+    
+    public void populateperson(){
+        cbperson.removeAll();
+        for(Person person: business.getEmployDirectory().getEmployeeList()){
+            cbperson.addItem(String.valueOf(person));
+    }
+    }
+    
+    public void populaterole(){
+        cbrole.removeAll();
+        cbrole.addItem(UserAccount.EMPLOYEE_ROLE);
+    
+    } 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,11 +73,21 @@ public class AddUserAccountJPanel extends javax.swing.JPanel {
         jLabel4.setText("Is Active");
 
         jButton2.setText("<< Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel1.setText("ADD  New User Account");
 
         btnadduseraccount.setText("Add User Account");
+        btnadduseraccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnadduseraccountActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("First Name");
 
@@ -63,6 +99,11 @@ public class AddUserAccountJPanel extends javax.swing.JPanel {
         });
 
         btninactive.setText("No");
+        btninactive.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btninactiveActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Person");
 
@@ -140,7 +181,46 @@ public class AddUserAccountJPanel extends javax.swing.JPanel {
 
     private void btnactiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactiveActionPerformed
         // TODO add your handling code here:
+        if(btnactive.isSelected()){
+            btninactive.setSelected(false);
+        }
     }//GEN-LAST:event_btnactiveActionPerformed
+
+    private void btnadduseraccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadduseraccountActionPerformed
+        // TODO add your handling code here:
+        String username = jTextField1.getText().trim();
+        String password = jTextField2.getText().trim();
+        UserAccount ua = business.getUserAccountDirectory().addUserAccount();
+        ua.setUserName(username);
+        ua.setPassword(password);
+        ua.setPerson((Person) cbperson.getSelectedItem());
+        ua.setRole(String.valueOf(cbrole.getSelectedItem()));
+        if(btnactive.isSelected()){
+            ua.setIsActive(true);
+        }else{ua.setIsActive(false);}
+        JOptionPane.showMessageDialog(this,"User account created","info",JOptionPane.ERROR_MESSAGE );
+        jTextField1.setText("");
+                jTextField2.setText("");
+
+    }//GEN-LAST:event_btnadduseraccountActionPerformed
+
+    private void btninactiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btninactiveActionPerformed
+        // TODO add your handling code here:
+        if(btninactive.isSelected()){
+            btnactive.setSelected(false);
+        }
+    }//GEN-LAST:event_btninactiveActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+         userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray [componentArray.length -1];
+        ManageUserAccountsJPanel muajp = (ManageUserAccountsJPanel) component;
+        muajp.refreshtable();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
