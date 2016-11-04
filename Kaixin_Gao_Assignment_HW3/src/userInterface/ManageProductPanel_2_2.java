@@ -10,6 +10,7 @@ import Business.ProductList;
 import javax.swing.JPanel;
 import Business.Product;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -197,7 +198,7 @@ public class ManageProductPanel_2_2 extends javax.swing.JPanel {
 
     private void btnSreachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSreachActionPerformed
         // TODO add your handling code here:
-        Product result = productList.searchProduct(txtProductNumber.getText());
+        Product result = productList.search(txtProductNumber.getText());
         if(result == null){JOptionPane.showMessageDialog(null, "Can not find such product", "Information", JOptionPane.INFORMATION_MESSAGE);}
         else{
             ViewProductPanel_2_2_1 panel = new ViewProductPanel_2_2_1(userProcessContainer, result);

@@ -189,13 +189,29 @@ public class UserSearchPanel_1_1 extends javax.swing.JPanel {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-        Product result = productList.searchProduct(txtSearch.getText());
-        if(result == null){JOptionPane.showMessageDialog(null, "Can not find such product", "Information", JOptionPane.INFORMATION_MESSAGE);}
+        ArrayList<Product> results = productList.searchProduct(txtSearch.getText());
+         //ArrayList<Product> results = productList.search(tfSearchStr.getText());
+        if(results == null){JOptionPane.showMessageDialog(null, "Can not find such product", "Information", JOptionPane.INFORMATION_MESSAGE);}
         else{
-            UserViewPanel_1_1_1 panel = new UserViewPanel_1_1_1(userProcessContainer, result);
+            /*UserViewPanel_1_1_1 panel = new UserViewPanel_1_1_1(userProcessContainer, results);
              userProcessContainer.add("UserViewPanel_1_1_1", panel);
              CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-             layout.next(userProcessContainer);
+             layout.next(userProcessContainer);*/
+            DefaultTableModel dtm = (DefaultTableModel) tblProducts.getModel();
+        dtm.setRowCount(0);
+        for(Product product: results){
+            Object[] row = new Object [5];
+            row[0] = product;
+            row[1] = product.getModelnumber();
+            row[2] = product.getVonder();
+            row[3] = product.getBestprice();
+            row[4] = product.getDescription();
+            
+            
+            dtm.addRow(row);
+            
+            
+        }
         
         
         
